@@ -1,60 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class WelcomePage extends StatefulWidget {
+class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
   @override
-  State<WelcomePage> createState() => _WelcomePageState();
-}
-
-class _WelcomePageState extends State<WelcomePage> {
-  List images = [
-    "tezo1.jpg",
-    "tezo2.jpg",
-    "tezo3.jpg",
-  ];
-
-  @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              Image.asset("image/tezos1.jpg",
-                  height: 530, width: size.width, fit: BoxFit.cover),
-              Positioned(
-                bottom: 0.0,
-                child: Container(
-                  height: 36.0,
-                  width: size.width,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40.0),
-                      topRight: Radius.circular(40.0),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-          Column(
-            children: const [
-              Text(
-                "Choose your prefered hiking trail.",
-                style: TextStyle(
-                    fontSize: 32.0,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
-              ),
-              Text("Text 1"),
-              Text("Text 1"),
-            ],
-          )
-        ],
+      backgroundColor: Colors.green[50],
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SvgPicture.asset(
+              "image/Hiking.svg",
+              height: 250,
+            ),
+            Text(
+              "Let's go hiking!",
+              textAlign: TextAlign.center,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(fontWeight: FontWeight.w500),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              "With Denai Hiking you can hike anywhere that you want!",
+              textAlign: TextAlign.center,
+            )
+          ],
+        ),
       ),
     );
   }
