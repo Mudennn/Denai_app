@@ -12,6 +12,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  // List pages untuk bottom nav bar
   List pages = [
     HomePage(),
     ActivityPage(),
@@ -19,27 +20,48 @@ class _MainPageState extends State<MainPage> {
     ProfilePage(),
   ];
 
+  int currentIndex = 0;
+  void onTap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(items: const [
-        BottomNavigationBarItem(
-          label: "Home",
-          icon: Icon(Icons.home),
-        ),
-        BottomNavigationBarItem(
-          label: "Activity",
-          icon: Icon(Icons.directions_walk),
-        ),
-        BottomNavigationBarItem(
-          label: "Trip",
-          icon: Icon(Icons.chat),
-        ),
-        BottomNavigationBarItem(
-          label: "Profile",
-          icon: Icon(Icons.person),
-        ),
-      ]),
+      body: pages[currentIndex],
+      // backgroundColor: Colors.white70,
+      bottomNavigationBar: BottomNavigationBar(
+          onTap: onTap, // bind bagi boleh tukar2 page
+          currentIndex: currentIndex, // untuk boleh tukar2 page atau tengok current page
+          selectedItemColor: Colors.green[300],
+          unselectedItemColor: Colors.green[100],
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          elevation: 0,
+          type: BottomNavigationBarType.fixed, // tak nak bagi dia bergerak gerak dan boleh tukar color background
+          backgroundColor: Colors.white,
+          unselectedFontSize: 0,
+          selectedFontSize: 0,
+          items: const [
+            BottomNavigationBarItem(
+              label: "Home",
+              icon: Icon(Icons.home),
+            ),
+            BottomNavigationBarItem(
+              label: "Activity",
+              icon: Icon(Icons.directions_walk),
+            ),
+            BottomNavigationBarItem(
+              label: "Trip",
+              icon: Icon(Icons.chat),
+            ),
+            BottomNavigationBarItem(
+              label: "Profile",
+              icon: Icon(Icons.person),
+            ),
+          ]),
     );
   }
 }
