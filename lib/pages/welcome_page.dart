@@ -82,6 +82,7 @@ class _WelcomePageState extends State<WelcomePage> {
   }
 }
 
+// Dot Indicator
 class DotIndicator extends StatelessWidget {
   const DotIndicator({
     Key? key,
@@ -116,6 +117,8 @@ class Onboard {
   });
 }
 
+
+// Data page lain
 final List<Onboard> demo_data = [
   Onboard(
     image: "image/Hiking.svg",
