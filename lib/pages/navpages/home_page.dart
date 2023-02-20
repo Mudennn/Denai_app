@@ -10,8 +10,23 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text("Home Page")),
+    return Scaffold(
+      body: Column(
+        children: [
+          Container(
+            padding: const EdgeInsets.only(top: 70, left: 20),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.menu,
+                  size: 30,
+                  color: Colors.black54,
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
