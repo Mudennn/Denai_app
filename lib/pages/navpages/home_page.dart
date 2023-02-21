@@ -83,22 +83,55 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
           ),
+          //Popular container
           Container(
+            padding: const EdgeInsets.only(left: 20),
             height: 300,
             width: double.maxFinite,
-            child: TabBarView(controller: _tabController, children: [
-              Container(
-                width: 200,
-                height: 300,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                  image: const DecorationImage(image: AssetImage("image/Mountain1.jpg"))
+            child: TabBarView(
+              controller: _tabController,
+              children: [
+                ListView.builder(
+                  itemCount: 3,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      margin: const EdgeInsets.only(right: 15, top: 10),
+                      width: 200,
+                      height: 300,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image: const DecorationImage(
+                              image: AssetImage("image/Mountain1.jpg"),
+                              fit: BoxFit.cover)),
+                    );
+                  },
                 ),
-              ),
-              Text("Bye"),
-              Text("There"),
-            ]),
+                Text("Bye"),
+                Text("There"),
+              ],
+            ),
+          ),
+          // Explore More container
+          const SizedBox(
+            height: 30,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Explore more",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "See all",
+                  style: TextStyle(fontSize: 16, color: Colors.green[200]),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -142,7 +175,9 @@ class _CirclePainter extends BoxPainter {
     _paint.color = color;
     _paint.isAntiAlias = true;
 
-    final Offset circleOffset = Offset(configuration.size!.width/2 - radius/2, configuration.size!.height-radius); // untuk position circle
-    canvas.drawCircle(offset+circleOffset, radius, _paint);
+    final Offset circleOffset = Offset(
+        configuration.size!.width / 2 - radius / 2,
+        configuration.size!.height - radius); // untuk position circle
+    canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
 }
