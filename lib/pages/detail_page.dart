@@ -8,6 +8,8 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  int gottenStar = 4;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,10 +43,10 @@ class _DetailPageState extends State<DetailPage> {
                     icon: const Icon(Icons.arrow_back_ios_new_rounded),
                     color: Colors.white,
                   ),
-                  // Image box
                 ],
               ),
             ),
+            // Card mountain description
             Positioned(
               top: 320,
               child: Container(
@@ -64,6 +66,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
                 // Data container
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Mountain Name and price
                     Row(
@@ -77,12 +80,21 @@ class _DetailPageState extends State<DetailPage> {
                             color: Colors.black.withOpacity(0.8),
                           ),
                         ),
-                        Text(
-                          "RM 250",
-                          style: TextStyle(
-                              fontSize: 23,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.green),
+                        Column(
+                          children: [
+                            Text(
+                              "RM 250",
+                              style: TextStyle(
+                                  fontSize: 23,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.green),
+                            ),
+                            Text(
+                              "/per person",
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 12),
+                            )
+                          ],
                         ),
                       ],
                     ),
@@ -103,7 +115,34 @@ class _DetailPageState extends State<DetailPage> {
                           style: TextStyle(color: Colors.grey),
                         )
                       ],
-                    )
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      children: [
+                        Wrap(
+                          children: List.generate(
+                            5,
+                            (index) {
+                              return Icon(
+                                Icons.star,
+                                color: index < gottenStar
+                                    ? Colors.yellow
+                                    : Colors.black,
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          "(4.0)",
+                          style: TextStyle(color: Colors.grey),
+                        )
+                      ],
+                    ),
                   ],
                 ),
               ),
