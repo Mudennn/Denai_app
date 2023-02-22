@@ -9,7 +9,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   // List of image
-  
+  var images = {
+    "Mountain1.jpg" : "Hiking", // image file : values for text
+    "Mountain2.jpg" : "Kayaking",
+    "Mountain3.jpg" : "Camping",
+    "tezos1.jpg" : "Snorkling",
+  };
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController =
@@ -47,7 +53,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             const SizedBox(
-              height: 40,
+              height: 30,
             ),
             // Discover text
             Container(
@@ -58,7 +64,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             // Tab Bar
             Container(
@@ -163,14 +169,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 color: Colors.white,
-                                image: const DecorationImage(
-                                    image: AssetImage("image/Mountain1.jpg"),
+                                image: DecorationImage(
+                                    image: AssetImage("image/"+images.keys.elementAt(index)),
                                     fit: BoxFit.cover)),
+                          ),
+                          const SizedBox(
+                            height: 4,
                           ),
                           Container(
                             child: Text(
-                              "Hiking",
-                              style: TextStyle(
+                              images.values.elementAt(index),
+                              style: const TextStyle(
                                 color: Colors.grey,
                               ),
                             ),
