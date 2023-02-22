@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Home page sebuah page yang display tentang discover, explore dengan trip detail
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 

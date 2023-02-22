@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// Welcome page adalah 3 page yang berkait dengan onboarding people
+
 class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
 

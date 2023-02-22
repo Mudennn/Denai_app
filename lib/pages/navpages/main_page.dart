@@ -1,8 +1,10 @@
 import 'package:denai_app/pages/navpages/activity_page.dart';
-import 'package:denai_app/pages/navpages/home_page.dart';
+import 'package:denai_app/pages/home_page.dart';
 import 'package:denai_app/pages/navpages/profile_page.dart';
 import 'package:denai_app/pages/navpages/trip_page.dart';
 import 'package:flutter/material.dart';
+
+// Main page adalah sebuah page yang berkait dengan bottom navigation
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
