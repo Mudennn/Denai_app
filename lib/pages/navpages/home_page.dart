@@ -8,132 +8,180 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  // List of image
+  
   @override
   Widget build(BuildContext context) {
     TabController _tabController =
         TabController(length: 3, vsync: this); // vsync refer to context
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Sidebar menu dan Avatar
-          Container(
-            padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
-            child: Row(
-              children: [
-                const Text(
-                  "Denai Hiking",
-                  style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-                ),
-                // Container(
-                // margin: const EdgeInsets.only(right: 20),
-                // width: 50,
-                // height: 50,
-                // decoration: BoxDecoration(
-                //   borderRadius: BorderRadius.circular(10),
-                //   color: Colors.grey.withOpacity(0.5),
-                // ),
-                //  ),
-                Expanded(child: Container()),
-                Icon(
-                  Icons.menu,
-                  size: 30,
-                  color: Colors.black54,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          // Discover text
-          Container(
-            margin: const EdgeInsets.only(left: 20),
-            child: const Text(
-              "Discover",
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          // Tab Bar
-          Container(
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: TabBar(
-                controller: _tabController,
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.grey,
-                isScrollable: true,
-                labelPadding: const EdgeInsets.only(left: 20, right: 20),
-                indicatorSize: TabBarIndicatorSize.label,
-                indicator: CircleTabIndicator(color: Colors.green, radius: 4),
-                tabs: [
-                  Tab(
-                    text: "Popular",
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Sidebar menu dan Avatar
+            Container(
+              padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+              child: Row(
+                children: [
+                  const Text(
+                    "Denai Hiking",
+                    style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                   ),
-                  Tab(
-                    text: "Mountain",
-                  ),
-                  Tab(
-                    text: "Hill",
+                  // Container(
+                  // margin: const EdgeInsets.only(right: 20),
+                  // width: 50,
+                  // height: 50,
+                  // decoration: BoxDecoration(
+                  //   borderRadius: BorderRadius.circular(10),
+                  //   color: Colors.grey.withOpacity(0.5),
+                  // ),
+                  //  ),
+                  Expanded(child: Container()),
+                  Icon(
+                    Icons.menu,
+                    size: 30,
+                    color: Colors.black54,
                   ),
                 ],
               ),
             ),
-          ),
-          //Popular container
-          Container(
-            padding: const EdgeInsets.only(left: 20),
-            height: 300,
-            width: double.maxFinite,
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                ListView.builder(
-                  itemCount: 3,
+            const SizedBox(
+              height: 40,
+            ),
+            // Discover text
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: const Text(
+                "Discover",
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            // Tab Bar
+            Container(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: TabBar(
+                  controller: _tabController,
+                  labelColor: Colors.black,
+                  unselectedLabelColor: Colors.grey,
+                  isScrollable: true,
+                  labelPadding: const EdgeInsets.only(left: 20, right: 20),
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicator: CircleTabIndicator(color: Colors.green, radius: 4),
+                  tabs: [
+                    Tab(
+                      text: "Popular",
+                    ),
+                    Tab(
+                      text: "Mountain",
+                    ),
+                    Tab(
+                      text: "Hill",
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            //Popular container
+            Container(
+              padding: const EdgeInsets.only(left: 20),
+              height: 300,
+              width: double.maxFinite,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  ListView.builder(
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        margin: const EdgeInsets.only(right: 15, top: 10),
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: const DecorationImage(
+                                image: AssetImage("image/Mountain1.jpg"),
+                                fit: BoxFit.cover)),
+                      );
+                    },
+                  ),
+                  Text("Bye"),
+                  Text("There"),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            // Explore More container
+            Container(
+              margin: const EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Explore more",
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "See all",
+                    style: TextStyle(fontSize: 16, color: Colors.green[200]),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 100, // kalau guna listview pastikan ada height dgn width
+              width: double.maxFinite,
+              margin: const EdgeInsets.only(left: 20),
+              child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      margin: const EdgeInsets.only(right: 15, top: 10),
-                      width: 200,
-                      height: 300,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                          image: const DecorationImage(
-                              image: AssetImage("image/Mountain1.jpg"),
-                              fit: BoxFit.cover)),
+                  itemCount: 4, // dia kira loop
+                  itemBuilder: (context, index) {
+                    return Container( //container gambar dan text
+                      margin: const EdgeInsets.only(
+                        right: 20,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            // margin: const EdgeInsets.only(
+                            //   right: 50,
+                            // ),
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.white,
+                                image: const DecorationImage(
+                                    image: AssetImage("image/Mountain1.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          Container(
+                            child: Text(
+                              "Hiking",
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     );
-                  },
-                ),
-                Text("Bye"),
-                Text("There"),
-              ],
-            ),
-          ),
-          // Explore More container
-          const SizedBox(
-            height: 30,
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Explore more",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  "See all",
-                  style: TextStyle(fontSize: 16, color: Colors.green[200]),
-                ),
-              ],
-            ),
-          ),
-        ],
+                  }),
+            )
+          ],
+        ),
       ),
     );
   }
