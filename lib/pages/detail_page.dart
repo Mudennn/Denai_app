@@ -65,13 +65,17 @@ class _DetailPageState extends State<DetailPage> {
                 // Data container
                 child: Column(
                   children: [
+                    // Mountain Name and price
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Mount Kinabalu",
                           style: TextStyle(
-                              fontSize: 23, fontWeight: FontWeight.bold),
+                            fontSize: 23,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black.withOpacity(0.8),
+                          ),
                         ),
                         Text(
                           "RM 250",
@@ -80,6 +84,24 @@ class _DetailPageState extends State<DetailPage> {
                               fontWeight: FontWeight.bold,
                               color: Colors.green),
                         ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.location_on_outlined,
+                          color: Colors.grey,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "Kota Kinabalu, Sabah",
+                          style: TextStyle(color: Colors.grey),
+                        )
                       ],
                     )
                   ],
