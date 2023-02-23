@@ -11,6 +11,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   int gottenStar = 4;
+  int selectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +151,7 @@ class _DetailPageState extends State<DetailPage> {
                     const SizedBox(
                       height: 25,
                     ),
-                    // Berapa orang nak pi?
+                    // People container
                     const Text(
                       "People",
                       style: TextStyle(
@@ -170,20 +171,71 @@ class _DetailPageState extends State<DetailPage> {
                     const SizedBox(
                       height: 10,
                     ),
+                    // Number selection
                     Wrap(
                       children: List.generate(5, (index) {
-                        return AppButtons(
-                            size: 50,
-                            color: Colors.green[600]!,
-                            backgroundColor: Colors.green[200]!,
-                            borderColor: Colors.green[200]!,
-                            isIcon: false);
+                        return InkWell(
+                          onTap: () {
+                            setState(() {
+                              selectedIndex = index;
+                            });
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(right: 10),
+                            child: AppButtons(
+                                size: 50,
+                                color: selectedIndex == index
+                                    ? Colors.green[50]!
+                                    : Colors.green[800]!,
+                                backgroundColor: selectedIndex == index
+                                    ? Colors.green[400]!
+                                    : Colors.green[100]!,
+                                borderColor: selectedIndex == index
+                                    ? Colors.green[400]!
+                                    : Colors.green[100]!,
+                                text: (index + 1).toString()),
+                          ),
+                        );
                       }),
-                    )
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    // Description
+                    const Text(
+                      "Description",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "You must go fro travel. Travelling helps get rid of pressure. Go to the mountains to see the nature.",
+                      style: TextStyle(color: Colors.grey),
+                    ),
                   ],
                 ),
               ),
             ),
+            // Bottom button
+            Positioned(
+              bottom: 20,
+              left: 20,
+              child: Row(children: [
+                AppButtons(
+                  size: 60,
+                  color: Colors.green[200]!,
+                  backgroundColor: Colors.white,
+                  borderColor: Colors.green[200]!,
+                  isIcon: true,
+                  icon: Icons.favorite_border,
+                ),
+                
+              ]),
+            )
           ],
         ),
       ),
