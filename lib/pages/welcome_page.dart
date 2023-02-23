@@ -100,7 +100,8 @@ class DotIndicator extends StatelessWidget {
       height: isActive ? 12 : 4,
       width: 4,
       decoration: BoxDecoration(
-        color: isActive ?Colors.green[500] : Colors.green[500]?.withOpacity(0.4),
+        color:
+            isActive ? Colors.green[500] : Colors.green[500]?.withOpacity(0.4),
         borderRadius: const BorderRadius.all(
           Radius.circular(12),
         ),
@@ -118,7 +119,6 @@ class Onboard {
     required this.description,
   });
 }
-
 
 // Data page lain
 final List<Onboard> demo_data = [

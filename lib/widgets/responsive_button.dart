@@ -1,17 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class ResponsiveButton extends StatelessWidget {
-  final Width width;
+  bool? isResponsive;
+  double? width;
 
-  ResponsiveButton({super.key, this.width});
+  ResponsiveButton({Key? key, this.width,this.isResponsive=false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
       height: 60,
-      decoration: BoxDecoration(),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10), color: Colors.green[400]),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Icon(Icons.arrow_forward_ios_rounded)]),
     );
   }
 }
