@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/app_button.dart';
+
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
 
@@ -101,6 +103,7 @@ class _DetailPageState extends State<DetailPage> {
                     const SizedBox(
                       height: 10,
                     ),
+                    // Location
                     Row(
                       children: [
                         Icon(
@@ -119,6 +122,7 @@ class _DetailPageState extends State<DetailPage> {
                     const SizedBox(
                       height: 20,
                     ),
+                    // Rating
                     Row(
                       children: [
                         Wrap(
@@ -143,6 +147,34 @@ class _DetailPageState extends State<DetailPage> {
                         )
                       ],
                     ),
+                    const SizedBox(
+                      height: 25,
+                    ),
+                    // Berapa orang nak pi?
+                    const Text(
+                      "People",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    const Text(
+                      "Number of people in your group",
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Wrap(
+                      children: List.generate(5, (index) {
+                        return AppButtons();
+                      }),
+                    )
                   ],
                 ),
               ),
