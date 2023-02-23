@@ -133,7 +133,7 @@ class _DetailPageState extends State<DetailPage> {
                                 Icons.star,
                                 color: index < gottenStar
                                     ? Colors.yellow
-                                    : Colors.black,
+                                    : Colors.grey,
                               );
                             },
                           ),
@@ -172,7 +172,12 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                     Wrap(
                       children: List.generate(5, (index) {
-                        return AppButtons();
+                        return AppButtons(
+                            size: 50,
+                            color: Colors.green[600]!,
+                            backgroundColor: Colors.green[200]!,
+                            borderColor: Colors.green[200]!,
+                            isIcon: false);
                       }),
                     )
                   ],
