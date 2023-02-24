@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/app_button.dart';
+import '../widgets/responsive_button.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -54,7 +55,7 @@ class _DetailPageState extends State<DetailPage> {
               top: 320,
               left: 0,
               bottom: 80,
-              right: 0,
+              right: 0, // untuk bagi dia scroll kena ada semua ni
               child: Container(
                 padding: const EdgeInsets.only(
                   left: 20,
@@ -72,6 +73,7 @@ class _DetailPageState extends State<DetailPage> {
                 ),
                 // Data container
                 child: SingleChildScrollView(
+                  // dan kena wrap column kepada widget
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -229,6 +231,7 @@ class _DetailPageState extends State<DetailPage> {
             Positioned(
               bottom: 10,
               left: 20,
+              right: 20,
               child: Row(children: [
                 AppButtons(
                   size: 60,
@@ -237,6 +240,12 @@ class _DetailPageState extends State<DetailPage> {
                   borderColor: Colors.green[200]!,
                   isIcon: true,
                   icon: Icons.favorite_border,
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                ResponsiveButton(
+                  isResponsive: true,
                 ),
               ]),
             )
