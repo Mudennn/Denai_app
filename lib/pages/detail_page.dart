@@ -145,7 +145,7 @@ class _DetailPageState extends State<DetailPage> {
                               },
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Text(
@@ -241,7 +241,7 @@ class _DetailPageState extends State<DetailPage> {
                   isIcon: true,
                   icon: Icons.favorite_border,
                 ),
-                SizedBox(
+               const SizedBox(
                   width: 20,
                 ),
                 ResponsiveButton(
