@@ -1,6 +1,7 @@
 // import 'package:denai_app/pages/navpages/home_page.dart';
 import 'package:denai_app/cubit/app_cubit_logics.dart';
 import 'package:denai_app/cubit/app_cubits.dart';
+import 'package:denai_app/pages/detail_mountain_page.dart';
 import 'package:denai_app/pages/detail_page.dart';
 // import 'package:denai_app/pages/navpages/main_page.dart';
 // import 'package:denai_app/pages/welcome_page.dart';
@@ -23,10 +24,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BlocProvider<AppCubits>(
-        create:(context) => AppCubits(),
-        child: AppCubitLogics(),
-      )
+      home: const DetailMountainPage()
+      // home: BlocProvider<AppCubits>(
+      //   create:(context) => AppCubits(),
+      //   child: AppCubitLogics(),
+      // )
     );
   }
 }
