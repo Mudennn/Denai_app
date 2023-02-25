@@ -1,10 +1,10 @@
 import 'package:denai_app/constant.dart';
-import 'package:denai_app/widgets/responsive_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class WelcomePageV2 extends StatefulWidget {
   const WelcomePageV2({super.key});
+  static String routeName = "/welcomePage";
 
   @override
   State<WelcomePageV2> createState() => _WelcomePageV2State();
@@ -73,7 +73,7 @@ class _WelcomePageV2State extends State<WelcomePageV2> {
       height: 6,
       width: currentPage == index ? 20 : 6,
       decoration: BoxDecoration(
-        color: currentPage == index ? buttonColor : Colors.grey,
+        color: currentPage == index ? headingColor : Colors.grey,
         borderRadius: BorderRadius.circular(3),
       ),
     );

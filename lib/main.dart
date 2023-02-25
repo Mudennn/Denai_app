@@ -6,6 +6,7 @@
 // import 'package:denai_app/pages/navpages/main_page.dart';
 // import 'package:denai_app/pages/welcome_page.dart';
 import 'package:denai_app/pages/welcome_page_v2.dart';
+import 'package:denai_app/routes.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +26,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const WelcomePageV2()
+      initialRoute: WelcomePageV2.routeName,
+      routes: routes,
+      // home: const WelcomePageV2()
       // home: BlocProvider<AppCubits>(
       //   create:(context) => AppCubits(),
       //   child: AppCubitLogics(),
@@ -33,5 +36,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
