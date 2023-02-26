@@ -1,4 +1,5 @@
 import 'package:denai_app/constant.dart';
+import 'package:denai_app/pages/sign_in/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -55,6 +56,9 @@ class _WelcomePageV2State extends State<WelcomePageV2> {
                   ),
                   DefaultButton(
                     text: "Continue",
+                    press: () {
+                      Navigator.pushNamed(context, SignInScreen.routeName);
+                    },
                   ),
                   const Spacer(),
                 ],
@@ -84,9 +88,11 @@ class DefaultButton extends StatelessWidget {
   const DefaultButton({
     super.key,
     required this.text,
+    required this.press,
   });
 
   final String text;
+  final VoidCallback? press;
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +101,7 @@ class DefaultButton extends StatelessWidget {
       height: 56,
       child: ElevatedButton(
         // style: ButtonStyle(backgroundColor: ),
-        onPressed: () {},
+        onPressed: press,
         child: Text(
           text,
           style: TextStyle(fontSize: 18, color: Colors.white),
@@ -124,7 +130,7 @@ final List<Onboard> welcomeData = [
   Onboard(
     image: "image/Community.svg",
     title: "Build your own community",
-    text: "Now you can create your on community in one place!",
+    text: "Now you can create your own community in one place!",
   ),
   Onboard(
     image: "image/Card Credit.svg",
