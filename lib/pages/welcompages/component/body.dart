@@ -1,18 +1,26 @@
 import 'package:denai_app/constant.dart';
 import 'package:denai_app/pages/sign_in/sign_in_screen.dart';
+import 'package:denai_app/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
-class WelcomePageV2 extends StatefulWidget {
-  const WelcomePageV2({super.key});
-  static String routeName = "/welcomePage";
+import '../../../components/default_button.dart';
+import '../component/content.dart';
+
+
+
+class Body extends StatefulWidget {
+  const Body({super.key});
+  
 
   @override
-  State<WelcomePageV2> createState() => _WelcomePageV2State();
+  State<Body> createState() => _BodyState();
+  
 }
 
-class _WelcomePageV2State extends State<WelcomePageV2> {
+class _BodyState extends State<Body> {
   int currentPage = 0;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +30,7 @@ class _WelcomePageV2State extends State<WelcomePageV2> {
           const SizedBox(
             height: 50,
           ),
+          //Content dengan gambar 
           Expanded(
             flex: 3,
             child: PageView.builder(
@@ -37,10 +46,11 @@ class _WelcomePageV2State extends State<WelcomePageV2> {
                   text: welcomeData[index].text),
             ),
           ),
+          // Dot bar 
           Expanded(
             flex: 2,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
               child: Column(
                 children: [
                   const Spacer(),
@@ -54,6 +64,7 @@ class _WelcomePageV2State extends State<WelcomePageV2> {
                   const Spacer(
                     flex: 3,
                   ),
+                  //Button 
                   DefaultButton(
                     text: "Continue",
                     press: () {
@@ -70,6 +81,7 @@ class _WelcomePageV2State extends State<WelcomePageV2> {
     );
   }
 
+// Dot Navigator 
   AnimatedContainer buildDot({required int index}) {
     return AnimatedContainer(
       duration: animationDuration,
@@ -84,32 +96,9 @@ class _WelcomePageV2State extends State<WelcomePageV2> {
   }
 }
 
-class DefaultButton extends StatelessWidget {
-  const DefaultButton({
-    super.key,
-    required this.text,
-    required this.press,
-  });
 
-  final String text;
-  final VoidCallback? press;
 
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 56,
-      child: ElevatedButton(
-        // style: ButtonStyle(backgroundColor: ),
-        onPressed: press,
-        child: Text(
-          text,
-          style: TextStyle(fontSize: 18, color: Colors.white),
-        ),
-      ),
-    );
-  }
-}
+// List data 
 
 class Onboard {
   final String image, title, text;
@@ -139,53 +128,4 @@ final List<Onboard> welcomeData = [
   ),
 ];
 
-class Content extends StatelessWidget {
-  const Content({
-    Key? key,
-    required this.text,
-    required this.title,
-    required this.image,
-  }) : super(key: key);
 
-  final String text, image, title;
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          children: [
-            const Spacer(),
-            Text(
-              title,
-              style: const TextStyle(
-                  fontSize: 28,
-                  color: headingColor,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Text(
-              text,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: textColor),
-            ),
-            const Spacer(
-              flex: 2,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SvgPicture.asset(
-              image,
-              height: 265,
-              width: 235,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}

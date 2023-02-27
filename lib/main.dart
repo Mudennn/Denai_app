@@ -5,7 +5,8 @@
 // import 'package:denai_app/pages/detail_page.dart';
 // import 'package:denai_app/pages/navpages/main_page.dart';
 // import 'package:denai_app/pages/welcome_page.dart';
-import 'package:denai_app/pages/welcome_page_v2.dart';
+import 'package:denai_app/constant.dart';
+import 'package:denai_app/pages/welcompages/welcome_page.dart';
 import 'package:denai_app/routes.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,9 +25,13 @@ class MyApp extends StatelessWidget {
       title: 'Denai App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: whiteColor,
+        fontFamily: "Muli",
+        textTheme: const TextTheme(bodyLarge: TextStyle(color: headingColor),
+        bodyMedium: TextStyle(color: textColor),),
+        // primarySwatch: Colors.blue,
       ),
-      initialRoute: WelcomePageV2.routeName,
+      initialRoute: WelcomePage.routeName,
       routes: routes,
       // home: const WelcomePageV2()
       // home: BlocProvider<AppCubits>(
