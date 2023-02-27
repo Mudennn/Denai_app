@@ -51,6 +51,8 @@ class SignInScreen extends StatelessWidget {
   }
 }
 
+// Form
+
 class SignForm extends StatefulWidget {
   const SignForm({super.key});
 
@@ -65,7 +67,51 @@ class _SignFormState extends State<SignForm> {
         child: Column(
       children: [
         TextFormField(
-          decoration: InputDecoration(hintText: "Enter your email"),
+          decoration: const InputDecoration(
+            labelText: "Email",
+            hintText: "Enter your email",
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            suffixIcon: Padding(
+              padding: EdgeInsets.fromLTRB(0, 20, 20, 20),
+              child: Icon(Icons.email_outlined),
+            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(28)),
+              borderSide: BorderSide(color: textColor),
+              gapPadding: 10,
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(28)),
+              borderSide: BorderSide(color: textColor),
+              gapPadding: 10,
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        TextFormField(
+          decoration: const InputDecoration(
+            labelText: "Password",
+            hintText: "Enter your password",
+            floatingLabelBehavior: FloatingLabelBehavior.always,
+            suffixIcon: Padding(
+              padding: EdgeInsets.fromLTRB(0, 20, 20, 20),
+              child: Icon(Icons.lock_outline_rounded),
+            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(28)),
+              borderSide: BorderSide(color: textColor),
+              gapPadding: 10,
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(28)),
+              borderSide: BorderSide(color: textColor),
+              gapPadding: 10,
+            ),
+          ),
         )
       ],
     ));
