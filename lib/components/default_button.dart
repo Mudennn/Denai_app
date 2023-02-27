@@ -1,3 +1,4 @@
+import 'package:denai_app/constant.dart';
 import 'package:flutter/material.dart';
 
 import '../size_config.dart';
@@ -18,7 +19,7 @@ class DefaultButton extends StatelessWidget {
       width: double.infinity,
       height: getProportionateScreenHeight(56),
       child: ElevatedButton(
-        // style: ButtonStyle(backgroundColor: ),
+        style: ElevatedButton.styleFrom(backgroundColor: buttonColor),
         onPressed: press,
         child: Text(
           text,
