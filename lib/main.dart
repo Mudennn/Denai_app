@@ -1,14 +1,9 @@
-// import 'package:denai_app/pages/navpages/home_page.dart';
-// import 'package:denai_app/cubit/app_cubit_logics.dart';
-// import 'package:denai_app/cubit/app_cubits.dart';
-// import 'package:denai_app/pages/detail_mountain_page.dart';
-// import 'package:denai_app/pages/detail_page.dart';
-// import 'package:denai_app/pages/navpages/main_page.dart';
-// import 'package:denai_app/pages/welcome_page.dart';
-import 'package:denai_app/constant.dart';
 import 'package:denai_app/pages/welcompages/welcome_page.dart';
 import 'package:denai_app/routes.dart';
+import 'package:denai_app/theme.dart';
 import 'package:flutter/material.dart';
+
+
 // import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
@@ -24,13 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Denai App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: whiteColor,
-        fontFamily: "Muli",
-        textTheme: const TextTheme(bodyLarge: TextStyle(color: headingColor),
-        bodyMedium: TextStyle(color: textColor),),
-        // primarySwatch: Colors.blue,
-      ),
+      theme: theme(),
       initialRoute: WelcomePage.routeName,
       routes: routes,
       // home: const WelcomePageV2()
@@ -41,3 +30,5 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
