@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../constant.dart';
 import 'components/body.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class SignInScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "Sign In",
-          // style: TextStyle(color: textColor, fontSize: 18),
+          style: TextStyle(color: textColor, fontSize: 18),
         ),
         centerTitle: true,
       ),

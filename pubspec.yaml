@@ -84,10 +84,10 @@ flutter:
   fonts:
     - family: Muli
       fonts:
-        - asset: asset\fonts\muli\Muli.ttf
-        - asset: asset\fonts\muli\Muli-Bold.ttf
+        - asset: assets/fonts/muli/Muli.ttf
+        - asset: assets/fonts/muli/Muli-Bold.ttf
           weight: 700
-        - asset: asset\fonts\muli\Muli-Light.ttf
+        - asset: assets/fonts/muli/Muli-Light.ttf
           weight: 300
 
   #   - family: Trajan Pro
