@@ -1,5 +1,6 @@
 import 'package:denai_app/components/form_error.dart';
 import 'package:denai_app/pages/forgot_password/forgot_password_page.dart';
+import 'package:denai_app/pages/login_success/login_success_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/default_button.dart';
@@ -50,7 +51,8 @@ class _SignFormState extends State<SignForm> {
                 const Text("Remember me"),
                 const Spacer(),
                 GestureDetector(
-                  onTap: () => Navigator.popAndPushNamed(context, ForgotPasswordPage.routeName),
+                  onTap: () => Navigator.popAndPushNamed(
+                      context, ForgotPasswordPage.routeName),
                   child: Text(
                     "Forgot Password",
                     style: TextStyle(decoration: TextDecoration.underline),
@@ -67,6 +69,9 @@ class _SignFormState extends State<SignForm> {
               press: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState?.save();
+                  // If All are valid then go to success screen
+                  Navigator.popAndPushNamed(
+                      context, LoginSuccessPage.routeName);
                 }
               },
             ),
@@ -95,10 +100,12 @@ class _SignFormState extends State<SignForm> {
           setState(() {
             errors.add(passNullError);
           });
+          return "";
         } else if (value.length < 8 && !errors.contains(shortPassError)) {
           setState(() {
             errors.add(shortPassError);
           });
+          return "";
         }
         return null;
       },
@@ -139,11 +146,13 @@ class _SignFormState extends State<SignForm> {
           setState(() {
             errors.add(emailNullError);
           });
+          return "";
         } else if (!emailValidatorRegExp.hasMatch(value) &&
             !errors.contains(invalidEmailError)) {
           setState(() {
             errors.add(invalidEmailError);
           });
+          return "";
         }
         return null;
       },
