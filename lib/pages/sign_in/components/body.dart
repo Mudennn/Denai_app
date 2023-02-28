@@ -1,11 +1,12 @@
 // import 'package:denai_app/components/default_button.dart';
 // import 'package:denai_app/components/custom_surffix_icon.dart';
 // import 'package:denai_app/components/form_error.dart';
+import 'package:denai_app/components/no_account_text.dart';
 import 'package:denai_app/components/social_icon.dart';
 import 'package:denai_app/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:denai_app/size_config.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:denai_app/size_config.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constant.dart';
 import 'sign_in_form.dart';
@@ -71,23 +72,7 @@ class Body extends StatelessWidget {
                 height: getProportionateScreenHeight(20),
               ),
               // Sign Up Container
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account?",
-                    style: TextStyle(
-                      fontSize: getProportionateScreenWidth(16),
-                    ),
-                  ),
-                  Text(
-                    "Sign Up",
-                    style: TextStyle(
-                        fontSize: getProportionateScreenWidth(16),
-                        color: buttonColor),
-                  ),
-                ],
-              )
+              NoAccountText()
             ],
           ),
         ),
@@ -95,3 +80,4 @@ class Body extends StatelessWidget {
     );
   }
 }
+

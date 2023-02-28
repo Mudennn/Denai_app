@@ -1,4 +1,5 @@
 import 'package:denai_app/components/form_error.dart';
+import 'package:denai_app/pages/forgot_password/forgot_password_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/default_button.dart';
@@ -48,9 +49,12 @@ class _SignFormState extends State<SignForm> {
                 ),
                 const Text("Remember me"),
                 const Spacer(),
-                const Text(
-                  "Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline),
+                GestureDetector(
+                  onTap: () => Navigator.popAndPushNamed(context, ForgotPasswordPage.routeName),
+                  child: Text(
+                    "Forgot Password",
+                    style: TextStyle(decoration: TextDecoration.underline),
+                  ),
                 )
               ],
             ),
