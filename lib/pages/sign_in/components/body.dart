@@ -1,10 +1,14 @@
-import 'package:denai_app/components/default_button.dart';
+// import 'package:denai_app/components/default_button.dart';
 // import 'package:denai_app/components/custom_surffix_icon.dart';
-import 'package:denai_app/components/form_error.dart';
+// import 'package:denai_app/components/form_error.dart';
+import 'package:denai_app/components/social_icon.dart';
+import 'package:denai_app/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:denai_app/size_config.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constant.dart';
+import 'sign_in_form.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -18,172 +22,76 @@ class Body extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
         ),
-        child: Column(
-          children: const [
-            // Tittle
-            Text(
-              "Welcome Back",
-              style: TextStyle(
-                  color: headingColor,
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "Sign in with your email and password \nor continue with social media",
-              textAlign: TextAlign.center,
-              style: TextStyle(color: textColor),
-            ),
-            SignForm(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: SizeConfig.screenHeight * 0.01,
+              ),
+              // Tittle
+              const Text(
+                "Welcome Back",
+                style: TextStyle(
+                    color: headingColor,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold),
+              ),
+              const Text(
+                "Sign in with your email and password \nor continue with social media",
+                textAlign: TextAlign.center,
+                style: TextStyle(color: textColor),
+              ),
+              SizedBox(
+                height: SizeConfig.screenHeight * 0.08,
+              ),
+              // Sign Form
+              SignForm(),
+              SizedBox(
+                height: SizeConfig.screenHeight * 0.08,
+              ),
+              // Social media container
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SocialCard(
+                    icon: "assets/image/icons8-google.svg",
+                    press: () {},
+                  ),
+                  SocialCard(
+                    icon: "assets/image/icons8-facebook.svg",
+                    press: () {},
+                  ),
+                  SocialCard(
+                    icon: "assets/image/icons8-twitter.svg",
+                    press: () {},
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: getProportionateScreenHeight(20),
+              ),
+              // Sign Up Container
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an account?",
+                    style: TextStyle(
+                      fontSize: getProportionateScreenWidth(16),
+                    ),
+                  ),
+                  Text(
+                    "Sign Up",
+                    style: TextStyle(
+                        fontSize: getProportionateScreenWidth(16),
+                        color: buttonColor),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       )),
-    );
-  }
-}
-
-// Form
-
-class SignForm extends StatefulWidget {
-  const SignForm({super.key});
-
-  @override
-  State<SignForm> createState() => _SignFormState();
-}
-
-class _SignFormState extends State<SignForm> {
-  final _formKey = GlobalKey<FormState>();
-  final List<String> errors = [];
-  late String email;
-  late String password;
-
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-        key: _formKey,
-        child: Column(
-          children: [
-            buildEmailFromField(),
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
-            buildPasswordFormField(),
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
-            FormError(errors: errors),
-            SizedBox(
-              height: getProportionateScreenHeight(10),
-            ),
-            Row(
-              children: [
-                Checkbox(
-                  value: false,
-                  onChanged: (value) {},
-                ),
-                Text("Remember me"),
-                Spacer(),
-                Text(
-                  "Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                )
-              ],
-            ),
-            DefaultButton(
-              text: 'Continue',
-              press: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState?.save();
-                }
-              },
-            ),
-          ],
-        ));
-  }
-
-//Password form field
-  TextFormField buildPasswordFormField() {
-    return TextFormField(
-      onSaved: (newValue) => password = newValue!,
-      onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(passNullError)) {
-          setState(() {
-            errors.remove(passNullError);
-          });
-        } else if (value.length >= 8 && errors.contains(shortPassError)) {
-          setState(() {
-            errors.remove(shortPassError);
-          });
-        }
-        return;
-      },
-      validator: (value) {
-        if (value!.isEmpty && !errors.contains(passNullError)) {
-          setState(() {
-            errors.add(passNullError);
-          });
-        } else if (value.length < 8 && !errors.contains(shortPassError)) {
-          setState(() {
-            errors.add(shortPassError);
-          });
-        }
-        return null;
-      },
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: "Password",
-        hintText: "Enter your password",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: Padding(
-          padding: EdgeInsets.fromLTRB(0, getProportionateScreenWidth(20),
-              getProportionateScreenWidth(20), getProportionateScreenWidth(20)),
-          child: const Icon(Icons.lock_outline_rounded),
-        ),
-      ),
-    );
-  }
-
-// Email Form Field
-  TextFormField buildEmailFromField() {
-    return TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => email = newValue!,
-      onChanged: (value) {
-        if (value.isNotEmpty && errors.contains(emailNullError)) {
-          setState(() {
-            errors.remove(emailNullError);
-          });
-        } else if (emailValidatorRegExp.hasMatch(value) &&
-            errors.contains(invalidEmailError)) {
-          setState(() {
-            errors.remove(invalidEmailError);
-          });
-        }
-        return;
-      },
-      validator: (value) {
-        if (value!.isEmpty && !errors.contains(emailNullError)) {
-          setState(() {
-            errors.add(emailNullError);
-          });
-        } else if (!emailValidatorRegExp.hasMatch(value) &&
-            !errors.contains(invalidEmailError)) {
-          setState(() {
-            errors.add(invalidEmailError);
-          });
-        }
-        return null;
-      },
-      decoration: InputDecoration(
-        labelText: "Email",
-        hintText: "Enter your email",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        // suffixIcon: CustomeSurffixIcon(),
-        suffixIcon: Padding(
-          padding: EdgeInsets.fromLTRB(0, getProportionateScreenWidth(20),
-              getProportionateScreenWidth(20), getProportionateScreenWidth(20)),
-          child: const Icon(Icons.email_outlined),
-        ),
-      ),
     );
   }
 }
