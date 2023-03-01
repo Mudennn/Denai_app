@@ -23,6 +23,22 @@ class _SignFormState extends State<SignForm> {
   late String password;
   bool remember = false;
 
+  // void addError({required String error}) {
+  //   if (!errors.contains(error)) {
+  //     setState(() {
+  //       errors.add(error);
+  //     });
+  //   }
+  // }
+
+  // void removeError({required String error}) {
+  //   if (!errors.contains(error)) {
+  //     setState(() {
+  //       errors.remove(error);
+  //     });
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Form(

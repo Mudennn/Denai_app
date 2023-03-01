@@ -1,5 +1,6 @@
 import 'package:denai_app/components/default_button.dart';
 import 'package:denai_app/constant.dart';
+import 'package:denai_app/pages/home_page.dart';
 import 'package:denai_app/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,7 @@ class Body extends StatelessWidget {
           height: SizeConfig.screenHeight * 0.08,
         ),
         Text(
-          "Login Sucess!",
+          "Login Success!",
           style: TextStyle(
               fontSize: getProportionateScreenWidth(30), color: headingColor),
         ),
@@ -30,7 +31,9 @@ class Body extends StatelessWidget {
           width: SizeConfig.screenWidth * 0.6,
           child: DefaultButton(
             text: 'Back to home',
-            press: () {},
+            press: () {
+              // Navigator.popAndPushNamed(context, HomePage.routeName);
+            },
           ),
         ),
         const Spacer(),

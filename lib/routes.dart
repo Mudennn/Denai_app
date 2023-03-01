@@ -1,6 +1,8 @@
 import 'package:denai_app/pages/forgot_password/forgot_password_page.dart';
+import 'package:denai_app/pages/home_page.dart';
 import 'package:denai_app/pages/login_success/login_success_page.dart';
 import 'package:denai_app/pages/sign_in/sign_in_screen.dart';
+import 'package:denai_app/pages/sign_up/sign_up_page.dart';
 import 'package:denai_app/pages/welcompages/welcome_page.dart';
 import 'package:flutter/widgets.dart';
 
@@ -11,4 +13,6 @@ final Map<String, WidgetBuilder> routes = {
   SignInScreen.routeName:(context) => SignInScreen(),
   ForgotPasswordPage.routeName:(context) => ForgotPasswordPage(),
   LoginSuccessPage.routeName:(context) => LoginSuccessPage(),
+  SignUpPage.routeName: (context) => SignUpPage(),
+  HomePage.routeName: (context) => HomePage()
 };

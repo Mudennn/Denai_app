@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // Home page sebuah page yang display tentang discover, explore dengan trip detail
 
 class HomePage extends StatefulWidget {
+  static String routeName = "/home";
   const HomePage({super.key});
 
   @override
@@ -12,10 +13,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   // List of image
   var images = {
-    "Mountain1.jpg" : "Hiking", // image file : values for text
-    "Mountain2.jpg" : "Kayaking",
-    "Mountain3.jpg" : "Camping",
-    "tezos1.jpg" : "Snorkling",
+    "Mountain1.jpg": "Hiking", // image file : values for text
+    "Mountain2.jpg": "Kayaking",
+    "Mountain3.jpg": "Camping",
+    "tezos1.jpg": "Snorkling",
   };
 
   @override
@@ -155,7 +156,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   scrollDirection: Axis.horizontal,
                   itemCount: 4, // dia kira loop
                   itemBuilder: (context, index) {
-                    return Container( //container gambar dan text
+                    return Container(
+                      //container gambar dan text
                       margin: const EdgeInsets.only(
                         right: 20,
                       ),
@@ -172,7 +174,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 borderRadius: BorderRadius.circular(20),
                                 color: Colors.white,
                                 image: DecorationImage(
-                                    image: AssetImage("image/"+images.keys.elementAt(index)),
+                                    image: AssetImage("image/" +
+                                        images.keys.elementAt(index)),
                                     fit: BoxFit.cover)),
                           ),
                           const SizedBox(
