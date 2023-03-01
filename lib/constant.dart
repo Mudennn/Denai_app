@@ -22,5 +22,6 @@ final RegExp emailValidatorRegExp =
 const String emailNullError = "Please Enter Your Email";
 const String invalidEmailError = "Please Enter Valid Email";
 const String passNullError = "Please Enter Your Password";
+const String rePassNullError = "Please Re-enter Your Password";
 const String shortPassError = "Password is too short";
 const String matchPassError = "Password don't match";
