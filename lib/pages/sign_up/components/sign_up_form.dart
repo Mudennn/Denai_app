@@ -1,3 +1,4 @@
+import 'package:denai_app/pages/complete_profile/complete_profile.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/default_button.dart';
@@ -60,6 +61,8 @@ class _SignUpFormState extends State<SignUpForm> {
               if (_formKey.currentState!.validate()) {
                 // Go to complete profile page
                 _formKey.currentState!.save();
+                Navigator.popAndPushNamed(
+                    context, CompleteProfilePage.routeName);
               }
             },
           ),

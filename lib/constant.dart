@@ -25,3 +25,6 @@ const String passNullError = "Please Enter Your Password";
 const String rePassNullError = "Please Re-enter Your Password";
 const String shortPassError = "Password is too short";
 const String matchPassError = "Password don't match";
+const String namelNullError = "Please Enter your name";
+const String phoneNumberNullError = "Please Enter your phone number";
+const String addressNullError = "Please Enter your address";

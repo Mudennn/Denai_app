@@ -1,3 +1,4 @@
+import 'package:denai_app/pages/complete_profile/complete_profile.dart';
 import 'package:denai_app/pages/forgot_password/forgot_password_page.dart';
 import 'package:denai_app/pages/home_page.dart';
 import 'package:denai_app/pages/login_success/login_success_page.dart';
@@ -14,5 +15,6 @@ final Map<String, WidgetBuilder> routes = {
   ForgotPasswordPage.routeName:(context) => ForgotPasswordPage(),
   LoginSuccessPage.routeName:(context) => LoginSuccessPage(),
   SignUpPage.routeName: (context) => SignUpPage(),
+  CompleteProfilePage.routeName: (context) => CompleteProfilePage(),
   HomePage.routeName: (context) => HomePage()
 };
