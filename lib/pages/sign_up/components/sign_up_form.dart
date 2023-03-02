@@ -1,4 +1,4 @@
-import 'package:denai_app/pages/complete_profile/complete_profile.dart';
+import 'package:denai_app/pages/complete_profile/complete_profile_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/default_button.dart';
