@@ -2,6 +2,7 @@ import 'package:denai_app/pages/complete_profile/complete_profile_page.dart';
 import 'package:denai_app/pages/forgot_password/forgot_password_page.dart';
 import 'package:denai_app/pages/home_page.dart';
 import 'package:denai_app/pages/login_success/login_success_page.dart';
+import 'package:denai_app/pages/otp/otp_page.dart';
 import 'package:denai_app/pages/sign_in/sign_in_screen.dart';
 import 'package:denai_app/pages/sign_up/sign_up_page.dart';
 import 'package:denai_app/pages/welcompages/welcome_page.dart';
@@ -16,5 +17,6 @@ final Map<String, WidgetBuilder> routes = {
   LoginSuccessPage.routeName:(context) => LoginSuccessPage(),
   SignUpPage.routeName: (context) => SignUpPage(),
   CompleteProfilePage.routeName: (context) => CompleteProfilePage(),
+  OtpPage.routeName: (context) => OtpPage(),
   HomePage.routeName: (context) => HomePage()
 };

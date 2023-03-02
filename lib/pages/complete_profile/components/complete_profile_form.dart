@@ -1,3 +1,4 @@
+import 'package:denai_app/pages/otp/otp_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/default_button.dart';
@@ -64,6 +65,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
               press: () {
                 if (_formKey.currentState!.validate()) {
                   // Go to otp screen
+                  Navigator.pushNamed(context, OtpPage.routeName);
                 }
               })
         ],
