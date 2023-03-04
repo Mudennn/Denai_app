@@ -1,6 +1,7 @@
 import 'package:denai_app/pages/complete_profile/complete_profile_page.dart';
 import 'package:denai_app/pages/forgot_password/forgot_password_page.dart';
-import 'package:denai_app/pages/home_page.dart';
+import 'package:denai_app/pages/home_page/home_page.dart';
+// import 'package:denai_app/pages/home_page.dart';
 import 'package:denai_app/pages/login_success/login_success_page.dart';
 import 'package:denai_app/pages/otp/otp_page.dart';
 import 'package:denai_app/pages/sign_in/sign_in_screen.dart';

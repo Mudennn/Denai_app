@@ -1,6 +1,7 @@
 import 'package:denai_app/components/default_button.dart';
 import 'package:denai_app/constant.dart';
-import 'package:denai_app/pages/home_page.dart';
+import 'package:denai_app/pages/home_page/home_page.dart';
+
 import 'package:denai_app/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,7 @@ class Body extends StatelessWidget {
           child: DefaultButton(
             text: 'Back to home',
             press: () {
-              // Navigator.popAndPushNamed(context, HomePage.routeName);
+              Navigator.pushNamed(context, HomePage.routeName);
             },
           ),
         ),
