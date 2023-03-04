@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // Home page sebuah page yang display tentang discover, explore dengan trip detail
 
 class HomePage extends StatefulWidget {
-  static String routeName = "/home";
+  // static String routeName = "/home";
   const HomePage({super.key});
 
   @override
@@ -181,14 +181,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           const SizedBox(
                             height: 4,
                           ),
-                          Container(
-                            child: Text(
+                           Text(
                               images.values.elementAt(index),
                               style: const TextStyle(
                                 color: Colors.grey,
                               ),
                             ),
-                          ),
                         ],
                       ),
                     );
