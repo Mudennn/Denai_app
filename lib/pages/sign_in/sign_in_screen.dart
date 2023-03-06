@@ -1,3 +1,4 @@
+import 'package:denai_app/pages/welcompages/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant.dart';
@@ -11,6 +12,9 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new_outlined), onPressed: () { Navigator.pushNamed(context, WelcomePage.routeName); },),
         title: const Text(
           "Sign In",
           style: TextStyle(color: textColor, fontSize: 18),

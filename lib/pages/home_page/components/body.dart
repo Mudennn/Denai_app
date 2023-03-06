@@ -28,7 +28,12 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             Container(
               alignment: Alignment.centerLeft,
               padding: const EdgeInsets.only(top: 20, left: 20, bottom: 20),
-              child: Text("Denai Hiking", style: TextStyle(fontSize: getProportionateScreenWidth(21), fontWeight: FontWeight.bold),),
+              child: Text(
+                "Denai Hiking",
+                style: TextStyle(
+                    fontSize: getProportionateScreenWidth(21),
+                    fontWeight: FontWeight.bold),
+              ),
             ),
             Padding(
               padding: EdgeInsets.symmetric(
@@ -73,7 +78,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            SizedBox(height: getProportionateScreenHeight(20),),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
             // Tab Bar ///
             Container(
               child: Align(
@@ -83,23 +90,181 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   labelColor: buttonColor,
                   unselectedLabelColor: textColor,
                   isScrollable: true,
-                  labelPadding: EdgeInsets.only(left: getProportionateScreenWidth(20), right: getProportionateScreenWidth(20),),
+                  labelPadding: EdgeInsets.only(
+                    left: getProportionateScreenWidth(20),
+                    right: getProportionateScreenWidth(20),
+                  ),
                   indicatorSize: TabBarIndicatorSize.label,
                   indicator: CircleTabIndicator(color: buttonColor, radius: 4),
                   tabs: const [
                     Tab(
-                        text: "Popular",
-                      ),
-                      Tab(
-                        text: "Mountain",
-                      ),
-                      Tab(
-                        text: "Hill",
-                      ),
+                      text: "Popular",
+                    ),
+                    Tab(
+                      text: "Mountain",
+                    ),
+                    Tab(
+                      text: "Hill",
+                    ),
                   ],
                 ),
               ),
-            )
+            ),
+
+            //Popular container //
+            Container(
+              padding: EdgeInsets.only(
+                left: getProportionateScreenWidth(20),
+              ),
+              height: 300,
+              width: double.maxFinite,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  ListView.builder(
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        margin: EdgeInsets.only(
+                          right: getProportionateScreenWidth(15),
+                          top: getProportionateScreenWidth(10),
+                        ),
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadiusDirectional.circular(20),
+                          color: Colors.white,
+                          image: const DecorationImage(
+                              image: AssetImage("image/Mountain1.jpg"),
+                              fit: BoxFit.cover),
+                        ),
+                      );
+                    },
+                  ),
+                  ListView.builder(
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        margin: EdgeInsets.only(
+                          right: getProportionateScreenWidth(15),
+                          top: getProportionateScreenWidth(10),
+                        ),
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadiusDirectional.circular(20),
+                          color: Colors.white,
+                          image: const DecorationImage(
+                              image: AssetImage("image/Mountain2.jpg"),
+                              fit: BoxFit.cover),
+                        ),
+                      );
+                    },
+                  ),
+                  ListView.builder(
+                    itemCount: 3,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        margin: EdgeInsets.only(
+                          right: getProportionateScreenWidth(15),
+                          top: getProportionateScreenWidth(10),
+                        ),
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadiusDirectional.circular(20),
+                          color: Colors.white,
+                          image: const DecorationImage(
+                              image: AssetImage("image/Mountain3.jpg"),
+                              fit: BoxFit.cover),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(30),
+            ),
+
+            // Explore More Container
+            Container(
+              margin: EdgeInsets.only(
+                left: getProportionateScreenWidth(20),
+                right: getProportionateScreenWidth(20),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Explore more",
+                    style: TextStyle(
+                        fontSize: getProportionateScreenWidth(18),
+                        fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "See all",
+                    style: TextStyle(
+                        fontSize: getProportionateScreenWidth(12),
+                        color: buttonColor),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
+            // Container Icon untuk setiap categories
+            Container(
+              height: 200,
+              width: double.maxFinite,
+              margin: EdgeInsets.only(
+                left: getProportionateScreenWidth(20),
+              ),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.only(
+                      right: getProportionateScreenWidth(20),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                                image: AssetImage(
+                                    "image/${images.keys.elementAt(index)}"),
+                                fit: BoxFit.cover),
+                          ),
+                        ),
+                        SizedBox(
+                          height: getProportionateScreenHeight(10),
+                        ),
+                        Text(
+                          images.values.elementAt(index),
+                          style: const TextStyle(color: textColor),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
+            
           ],
         ),
       ),
