@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 // Main page adalah sebuah page yang berkait dengan bottom navigation
 
 class MainPage extends StatefulWidget {
+  static String routeName = "/main";
   const MainPage({super.key});
 
   @override
