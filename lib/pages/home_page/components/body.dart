@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../components/secction_title.dart';
 import '../../../constant.dart';
 import '../../../size_config.dart';
 
@@ -142,6 +143,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                       );
                     },
                   ),
+
+                  // Mountain container
                   ListView.builder(
                     itemCount: 3,
                     scrollDirection: Axis.horizontal,
@@ -163,6 +166,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                       );
                     },
                   ),
+                  // Hill Section
                   ListView.builder(
                     itemCount: 3,
                     scrollDirection: Axis.horizontal,
@@ -192,29 +196,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
 
             // Explore More Container
-            Container(
-              margin: EdgeInsets.only(
-                left: getProportionateScreenWidth(20),
-                right: getProportionateScreenWidth(20),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Explore more",
-                    style: TextStyle(
-                        fontSize: getProportionateScreenWidth(18),
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "See all",
-                    style: TextStyle(
-                        fontSize: getProportionateScreenWidth(12),
-                        color: buttonColor),
-                  ),
-                ],
-              ),
-            ),
+            SectionTitle(text: 'Explore more', press: () {  },),
+            
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
@@ -271,6 +254,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
     );
   }
 }
+
+
 
 // Untuk indicator punya shape
 class CircleTabIndicator extends Decoration {
