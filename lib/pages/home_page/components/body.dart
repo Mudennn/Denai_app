@@ -82,7 +82,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
-            // Tab Bar ///
+
+            //--- TAB BAR --- ///
             Container(
               child: Align(
                 alignment: Alignment.centerLeft,
@@ -111,13 +112,14 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
 
-            PopularPlaceCard(),
-
-            //Popular container //
+            //--- Popular container ----//
             Container(
               padding: EdgeInsets.only(
-                left: getProportionateScreenWidth(20),
+                left: getProportionateScreenWidth(0),
               ),
               height: 300,
               width: double.maxFinite,
@@ -125,24 +127,91 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 controller: _tabController,
                 children: [
                   ListView.builder(
-                    itemCount: 3,
+                    itemCount: popularData.length,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        margin: EdgeInsets.only(
-                          right: getProportionateScreenWidth(15),
-                          top: getProportionateScreenWidth(10),
-                        ),
-                        width: 200,
-                        height: 300,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(20),
-                          color: Colors.white,
-                          image: const DecorationImage(
-                              image: AssetImage("image/Mountain1.jpg"),
-                              fit: BoxFit.cover),
-                        ),
-                      );
+                      return Padding(
+                          padding: EdgeInsets.only(
+                            left: getProportionateScreenWidth(20),
+                          ),
+                          child: SizedBox(
+                            height: getProportionateScreenHeight(350),
+                            width: getProportionateScreenWidth(200),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Stack(
+                                fit: StackFit.expand,
+                                children: [
+                                  Image.asset(
+                                    popularData[index].image,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                        colors: [
+                                          const Color(0xFF343434)
+                                              .withOpacity(0.15),
+                                          const Color(0xFF343434)
+                                              .withOpacity(0.4),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    child: Padding(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal:
+                                            getProportionateScreenWidth(10),
+                                        vertical:
+                                            getProportionateScreenWidth(10),
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Container(
+                                            alignment: AlignmentDirectional
+                                                .centerStart,
+                                            child: Text(
+                                              popularData[index].title,
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      getProportionateScreenWidth(
+                                                          14),
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Icon(
+                                                Icons.location_on_outlined,
+                                                color: Colors.white
+                                                    .withOpacity(0.5),
+                                              ),
+                                              Text(
+                                                popularData[index].text,
+                                                style: TextStyle(
+                                                  color: Colors.white
+                                                      .withOpacity(0.5),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ));
                     },
                   ),
 
@@ -259,65 +328,6 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
   }
 }
 
-class PopularPlaceCard extends StatelessWidget {
-  const PopularPlaceCard({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: getProportionateScreenHeight(350),
-      width: getProportionateScreenWidth(200),
-      child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Stack(
-            fit: StackFit.expand,
-            
-            children: [
-              Image.asset(
-                "image/Mountain1.jpg",
-                fit: BoxFit.cover,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFF343434).withOpacity(0.15),
-                      Color(0xFF343434).withOpacity(0.4)
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 0,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10), vertical: getProportionateScreenWidth(10),),
-                  child: Text.rich(
-                    TextSpan(
-                      style: TextStyle(color: Colors.white),
-                      children: [
-                        TextSpan(
-                          text: "Gunung Kinabalu\n",
-                          style: TextStyle(
-                              fontSize: getProportionateScreenWidth(14),
-                              fontWeight: FontWeight.bold),
-                        ),
-                        // Icon(Icons.location_on_outlined),
-                        TextSpan(text: "Sabah")
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          )),
-    );
-  }
-}
-
 // Untuk indicator punya shape
 class CircleTabIndicator extends Decoration {
   final Color color;
@@ -360,3 +370,31 @@ class _CirclePainter extends BoxPainter {
     canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
 }
+
+class Onboard {
+  final String image, title, text;
+
+  Onboard({
+    required this.image,
+    required this.title,
+    required this.text,
+  });
+}
+
+final List<Onboard> popularData = [
+  Onboard(
+    image: "image/Mountain1.jpg",
+    title: "Gunung Kinabalu",
+    text: "Sabah",
+  ),
+  Onboard(
+    image: "image/Mountain2.jpg",
+    title: "Gunung Korbu",
+    text: "Negeri Sembilan",
+  ),
+  Onboard(
+    image: "image/Mountain3.jpg",
+    title: "Bukit Broga",
+    text: "Selangor",
+  ),
+];
