@@ -112,6 +112,8 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               ),
             ),
 
+            PopularPlaceCard(),
+
             //Popular container //
             Container(
               padding: EdgeInsets.only(
@@ -196,8 +198,11 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
 
             // Explore More Container
-            SectionTitle(text: 'Explore more', press: () {  },),
-            
+            SectionTitle(
+              text: 'Explore more',
+              press: () {},
+            ),
+
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
@@ -247,7 +252,6 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
-            
           ],
         ),
       ),
@@ -255,7 +259,64 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
   }
 }
 
+class PopularPlaceCard extends StatelessWidget {
+  const PopularPlaceCard({
+    super.key,
+  });
 
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: getProportionateScreenHeight(350),
+      width: getProportionateScreenWidth(200),
+      child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Stack(
+            fit: StackFit.expand,
+            
+            children: [
+              Image.asset(
+                "image/Mountain1.jpg",
+                fit: BoxFit.cover,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFF343434).withOpacity(0.15),
+                      Color(0xFF343434).withOpacity(0.4)
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10), vertical: getProportionateScreenWidth(10),),
+                  child: Text.rich(
+                    TextSpan(
+                      style: TextStyle(color: Colors.white),
+                      children: [
+                        TextSpan(
+                          text: "Gunung Kinabalu\n",
+                          style: TextStyle(
+                              fontSize: getProportionateScreenWidth(14),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        // Icon(Icons.location_on_outlined),
+                        TextSpan(text: "Sabah")
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          )),
+    );
+  }
+}
 
 // Untuk indicator punya shape
 class CircleTabIndicator extends Decoration {
