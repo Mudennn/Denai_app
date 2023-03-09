@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../components/secction_title.dart';
 import '../../../constant.dart';
 import '../../../size_config.dart';
+import 'hill_container.dart';
+import 'mountain_container.dart';
+import 'popular_container.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -84,8 +87,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
 
             //--- TAB BAR --- ///
-            Container(
-              child: Align(
+             Align(
                 alignment: Alignment.centerLeft,
                 child: TabBar(
                   controller: _tabController,
@@ -111,7 +113,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                   ],
                 ),
               ),
-            ),
+            
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
@@ -126,139 +128,11 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  ListView.builder(
-                    itemCount: popularData.length,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                          padding: EdgeInsets.only(
-                            left: getProportionateScreenWidth(20),
-                          ),
-                          child: SizedBox(
-                            height: getProportionateScreenHeight(350),
-                            width: getProportionateScreenWidth(200),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Stack(
-                                fit: StackFit.expand,
-                                children: [
-                                  Image.asset(
-                                    popularData[index].image,
-                                    fit: BoxFit.cover,
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          const Color(0xFF343434)
-                                              .withOpacity(0.15),
-                                          const Color(0xFF343434)
-                                              .withOpacity(0.4),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal:
-                                            getProportionateScreenWidth(10),
-                                        vertical:
-                                            getProportionateScreenWidth(10),
-                                      ),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            alignment: AlignmentDirectional
-                                                .centerStart,
-                                            child: Text(
-                                              popularData[index].title,
-                                              style: TextStyle(
-                                                  fontSize:
-                                                      getProportionateScreenWidth(
-                                                          14),
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white),
-                                            ),
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.location_on_outlined,
-                                                color: Colors.white
-                                                    .withOpacity(0.5),
-                                              ),
-                                              Text(
-                                                popularData[index].text,
-                                                style: TextStyle(
-                                                  color: Colors.white
-                                                      .withOpacity(0.5),
-                                                ),
-                                              ),
-                                            ],
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ));
-                    },
-                  ),
-
+                   PopularContainer(),
                   // Mountain container
-                  ListView.builder(
-                    itemCount: 3,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        margin: EdgeInsets.only(
-                          right: getProportionateScreenWidth(15),
-                          top: getProportionateScreenWidth(10),
-                        ),
-                        width: 200,
-                        height: 300,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(20),
-                          color: Colors.white,
-                          image: const DecorationImage(
-                              image: AssetImage("image/Mountain2.jpg"),
-                              fit: BoxFit.cover),
-                        ),
-                      );
-                    },
-                  ),
+                   MountainContainer(),
                   // Hill Section
-                  ListView.builder(
-                    itemCount: 3,
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        margin: EdgeInsets.only(
-                          right: getProportionateScreenWidth(15),
-                          top: getProportionateScreenWidth(10),
-                        ),
-                        width: 200,
-                        height: 300,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadiusDirectional.circular(20),
-                          color: Colors.white,
-                          image: const DecorationImage(
-                              image: AssetImage("image/Mountain3.jpg"),
-                              fit: BoxFit.cover),
-                        ),
-                      );
-                    },
-                  ),
+                  HillContainer(),
                 ],
               ),
             ),
@@ -277,7 +151,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
             // Container Icon untuk setiap categories
             Container(
-              height: 200,
+              height: 120,
               width: double.maxFinite,
               margin: EdgeInsets.only(
                 left: getProportionateScreenWidth(20),
@@ -321,12 +195,18 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
+            SectionTitle(text: "Trip this week", press: (){}),
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
+
 
 // Untuk indicator punya shape
 class CircleTabIndicator extends Decoration {
