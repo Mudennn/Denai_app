@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../../components/mountain_card.dart';
 import '../../../components/secction_title.dart';
 import '../../../constant.dart';
+import '../../../models/Mountain.dart';
 import '../../../size_config.dart';
 import 'hill_container.dart';
 import 'mountain_container.dart';
@@ -87,33 +89,33 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
 
             //--- TAB BAR --- ///
-             Align(
-                alignment: Alignment.centerLeft,
-                child: TabBar(
-                  controller: _tabController,
-                  labelColor: buttonColor,
-                  unselectedLabelColor: textColor,
-                  isScrollable: true,
-                  labelPadding: EdgeInsets.only(
-                    left: getProportionateScreenWidth(20),
-                    right: getProportionateScreenWidth(20),
-                  ),
-                  indicatorSize: TabBarIndicatorSize.label,
-                  indicator: CircleTabIndicator(color: buttonColor, radius: 4),
-                  tabs: const [
-                    Tab(
-                      text: "Popular",
-                    ),
-                    Tab(
-                      text: "Mountain",
-                    ),
-                    Tab(
-                      text: "Hill",
-                    ),
-                  ],
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TabBar(
+                controller: _tabController,
+                labelColor: buttonColor,
+                unselectedLabelColor: textColor,
+                isScrollable: true,
+                labelPadding: EdgeInsets.only(
+                  left: getProportionateScreenWidth(20),
+                  right: getProportionateScreenWidth(20),
                 ),
+                indicatorSize: TabBarIndicatorSize.label,
+                indicator: CircleTabIndicator(color: buttonColor, radius: 4),
+                tabs: const [
+                  Tab(
+                    text: "Popular",
+                  ),
+                  Tab(
+                    text: "Mountain",
+                  ),
+                  Tab(
+                    text: "Hill",
+                  ),
+                ],
               ),
-            
+            ),
+
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
@@ -127,10 +129,10 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               width: double.maxFinite,
               child: TabBarView(
                 controller: _tabController,
-                children: [
-                   PopularContainer(),
+                children: const [
+                  PopularContainer(),
                   // Mountain container
-                   MountainContainer(),
+                  MountainContainer(),
                   // Hill Section
                   HillContainer(),
                 ],
@@ -195,17 +197,22 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
-            SectionTitle(text: "Trip this week", press: (){}),
+            SectionTitle(text: "Trip this week", press: () {}),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
+
+            ...List.generate(
+                demoMountain.length,
+                (index) => MountainCard(
+                      mountain: demoMountain[index],
+                    ))
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
 
 
 // Untuk indicator punya shape
