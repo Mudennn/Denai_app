@@ -17,12 +17,12 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> with TickerProviderStateMixin {
-  var images = {
-    "Mountain1.jpg": "Hiking", // image file : values for text
-    "Mountain2.jpg": "Kayaking",
-    "Mountain3.jpg": "Camping",
-    "tezos1.jpg": "Snorkling",
-  };
+  // var images = {
+  //   "Mountain1.jpg": "Hiking", // image file : values for text
+  //   "Mountain2.jpg": "Kayaking",
+  //   "Mountain3.jpg": "Camping",
+  //   "tezos1.jpg": "Snorkling",
+  // };
 
   @override
   Widget build(BuildContext context) {
@@ -152,6 +152,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               height: getProportionateScreenHeight(20),
             ),
             // Container Icon untuk setiap categories
+            
             Container(
               height: 120,
               width: double.maxFinite,
@@ -160,7 +161,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               ),
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 4,
+                itemCount: exploreData.length,
                 itemBuilder: (context, index) {
                   return Container(
                     margin: EdgeInsets.only(
@@ -177,7 +178,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                             color: Colors.white,
                             image: DecorationImage(
                                 image: AssetImage(
-                                    "image/${images.keys.elementAt(index)}"),
+                                    exploreData[index].image),
                                 fit: BoxFit.cover),
                           ),
                         ),
@@ -185,7 +186,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                           height: getProportionateScreenHeight(10),
                         ),
                         Text(
-                          images.values.elementAt(index),
+                          exploreData[index].title,
                           style: const TextStyle(color: textColor),
                         ),
                       ],
@@ -258,3 +259,36 @@ class _CirclePainter extends BoxPainter {
     canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
 }
+
+class Onboard {
+  final String image, title, text;
+
+  Onboard({
+    required this.image,
+    required this.title,
+    required this.text,
+  });
+}
+
+final List<Onboard> exploreData = [
+  Onboard(
+    image: "assets/image/Mountain1.jpg",
+    title: "Hiking",
+    text: "Sabah",
+  ),
+  Onboard(
+    image: "assets/image/Mountain2.jpg",
+    title: "Kayaking",
+    text: "Negeri Sembilan",
+  ),
+  Onboard(
+    image: "assets/image/Mountain3.jpg",
+    title: "Camping",
+    text: "Selangor",
+  ),
+  Onboard(
+    image: "assets/image/tezos1.jpg",
+    title: "Snorkling",
+    text: "Selangor",
+  ),
+];

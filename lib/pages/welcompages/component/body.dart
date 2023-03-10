@@ -112,17 +112,17 @@ class Onboard {
 
 final List<Onboard> welcomeData = [
   Onboard(
-    image: "image/Hiking.svg",
+    image: "assets/image/Hiking.svg",
     title: "Denai Hiking",
     text: "Welcome to Denai Hiking, Let's go hiking!",
   ),
   Onboard(
-    image: "image/Community.svg",
+    image: "assets/image/Community.svg",
     title: "Build your own community",
     text: "Now you can create your own community in one place!",
   ),
   Onboard(
-    image: "image/Card Credit.svg",
+    image: "assets/image/Card Credit.svg",
     title: "Fast and Secure Payment",
     text: "No need to do manualy!",
   ),

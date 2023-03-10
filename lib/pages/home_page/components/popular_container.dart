@@ -78,6 +78,8 @@ class PopularContainer extends StatelessWidget {
                                     Icons.location_on_outlined,
                                     color: Colors.white
                                         .withOpacity(0.5),
+                                        size: 13,
+
                                   ),
                                   Text(
                                     popularData[index].text,
@@ -115,17 +117,17 @@ class Onboard {
 
 final List<Onboard> popularData = [
   Onboard(
-    image: "image/Mountain1.jpg",
+    image: "assets/image/Mountain1.jpg",
     title: "Gunung Kinabalu",
     text: "Sabah",
   ),
   Onboard(
-    image: "image/Mountain2.jpg",
+    image: "assets/image/Mountain2.jpg",
     title: "Gunung Korbu",
     text: "Negeri Sembilan",
   ),
   Onboard(
-    image: "image/Mountain3.jpg",
+    image: "assets/image/Mountain3.jpg",
     title: "Bukit Broga",
     text: "Selangor",
   ),

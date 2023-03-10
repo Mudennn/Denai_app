@@ -17,7 +17,7 @@ class Body extends StatelessWidget {
           height: SizeConfig.screenHeight * 0.04,
         ),
         Image.asset(
-          "image/tezos1.jpg",
+          "assets/image/tezos1.jpg",
           height: SizeConfig.screenHeight * 0.4, //40%
         ),
         SizedBox(

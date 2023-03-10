@@ -24,9 +24,9 @@ class Mountain {
 List<Mountain> demoMountain = [
   Mountain(
     images: [
-      "image/Mountain3.jpg",
-      "image/tezos2.jpg",
-      "image/tezos3.jpg",
+      "assets/image/Mountain3.jpg",
+      "assets/image/tezos2.jpg",
+      "assets/image/tezos3.jpg",
     ],
     location: "Gunung Kinabalu",
     state: "Sabah",
@@ -35,16 +35,16 @@ List<Mountain> demoMountain = [
   Mountain(
       location: "Bukit Broga",
       state: "Selangor",
-      images: ["image/Mountain1.jpg"],
+      images: ["assets/image/Mountain1.jpg"],
       difficulty: "Easy"),
   Mountain(
       location: "Bukit Manjoi",
       state: "Perak",
-      images: ["image/Mountain2.jpg"],
+      images: ["assets/image/Mountain2.jpg"],
       difficulty: "Medium"),
   Mountain(
       location: "Bukit Selatan",
       state: "Ipoh",
-      images: ["image/Mountain2.jpg"],
+      images: ["assets/image/Mountain2.jpg"],
       difficulty: "Medium"),
 ];
