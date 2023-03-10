@@ -208,6 +208,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                       mountain: demoMountain[index],
                     ))
           ],
+          
         ),
       ),
     );
@@ -257,31 +258,3 @@ class _CirclePainter extends BoxPainter {
     canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
 }
-
-class Onboard {
-  final String image, title, text;
-
-  Onboard({
-    required this.image,
-    required this.title,
-    required this.text,
-  });
-}
-
-final List<Onboard> popularData = [
-  Onboard(
-    image: "image/Mountain1.jpg",
-    title: "Gunung Kinabalu",
-    text: "Sabah",
-  ),
-  Onboard(
-    image: "image/Mountain2.jpg",
-    title: "Gunung Korbu",
-    text: "Negeri Sembilan",
-  ),
-  Onboard(
-    image: "image/Mountain3.jpg",
-    title: "Bukit Broga",
-    text: "Selangor",
-  ),
-];

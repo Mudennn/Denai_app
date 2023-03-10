@@ -117,7 +117,7 @@ final List<Onboard> hillData = [
   
   Onboard(
     image: "image/Mountain3.jpg",
-    title: "Bukit Broga",
+    title: "assets/Bukit Broga",
     text: "Selangor",
   ),
   Onboard(
