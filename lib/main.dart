@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: theme(),
       initialRoute: WelcomePage.routeName,
       routes: routes,
-      // home: DetailPage()
+      // home: MainPage()
       // home: BlocProvider<AppCubits>(
       //   create:(context) => AppCubits(),
       //   child: AppCubitLogics(),
