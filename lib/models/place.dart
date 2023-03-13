@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Mountain {
+class Place {
   final String location, state;
   final List<String> images;
   final bool isFavourite, isPopular;
   final String difficulty;
   // final double rating, price;
 
-  Mountain({
+  Place({
     required this.location,
     required this.state,
     required this.images,
@@ -19,10 +19,10 @@ class Mountain {
   });
 }
 
-// List mountain
+// List Place
 
-List<Mountain> demoMountain = [
-  Mountain(
+List<Place> demoPlace = [
+  Place(
     images: [
       "assets/image/Mountain3.jpg",
       "assets/image/tezos2.jpg",
@@ -32,19 +32,24 @@ List<Mountain> demoMountain = [
     state: "Sabah",
     difficulty: "Hard",
   ),
-  Mountain(
+  Place(
       location: "Bukit Broga",
       state: "Selangor",
       images: ["assets/image/Mountain1.jpg"],
       difficulty: "Easy"),
-  Mountain(
+  Place(
       location: "Bukit Manjoi",
       state: "Perak",
       images: ["assets/image/Mountain2.jpg"],
       difficulty: "Medium"),
-  Mountain(
+  Place(
       location: "Bukit Selatan",
       state: "Ipoh",
       images: ["assets/image/Mountain2.jpg"],
       difficulty: "Medium"),
+  Place(
+      location: "Bukit eh",
+      state: "ehhh",
+      images: ["assets/image/Mountain1.jpg"],
+      difficulty: "Easy"),
 ];

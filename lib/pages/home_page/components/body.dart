@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
-import '../../../components/mountain_card.dart';
 import '../../../components/secction_title.dart';
 import '../../../constant.dart';
-import '../../../models/Mountain.dart';
 import '../../../size_config.dart';
+import 'explore_more_container.dart';
 import 'hill_container.dart';
+import 'list_mountain_and_hill_container.dart';
 import 'mountain_container.dart';
 import 'popular_container.dart';
 
@@ -115,7 +114,6 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                 ],
               ),
             ),
-
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
@@ -147,67 +145,17 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               text: 'Explore more',
               press: () {},
             ),
-
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
             // Container Icon untuk setiap categories
+            const ExploreMoreContainer(),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
             
-            Container(
-              height: 120,
-              width: double.maxFinite,
-              margin: EdgeInsets.only(
-                left: getProportionateScreenWidth(20),
-              ),
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: exploreData.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.only(
-                      right: getProportionateScreenWidth(20),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 80,
-                          height: 80,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.white,
-                            image: DecorationImage(
-                                image: AssetImage(
-                                    exploreData[index].image),
-                                fit: BoxFit.cover),
-                          ),
-                        ),
-                        SizedBox(
-                          height: getProportionateScreenHeight(10),
-                        ),
-                        Text(
-                          exploreData[index].title,
-                          style: const TextStyle(color: textColor),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
-            SectionTitle(text: "Trip this week", press: () {}),
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
-
-            ...List.generate(
-                demoMountain.length,
-                (index) => MountainCard(
-                      mountain: demoMountain[index],
-                    ))
+            // -- List Mountain and hill CONTAINER -- //
+            const ListMountainAndHillContainer(),
           ],
           
         ),
@@ -215,6 +163,9 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
     );
   }
 }
+
+
+
 
 
 // Untuk indicator punya shape
@@ -260,35 +211,3 @@ class _CirclePainter extends BoxPainter {
   }
 }
 
-class Onboard {
-  final String image, title, text;
-
-  Onboard({
-    required this.image,
-    required this.title,
-    required this.text,
-  });
-}
-
-final List<Onboard> exploreData = [
-  Onboard(
-    image: "assets/image/Mountain1.jpg",
-    title: "Hiking",
-    text: "Sabah",
-  ),
-  Onboard(
-    image: "assets/image/Mountain2.jpg",
-    title: "Kayaking",
-    text: "Negeri Sembilan",
-  ),
-  Onboard(
-    image: "assets/image/Mountain3.jpg",
-    title: "Camping",
-    text: "Selangor",
-  ),
-  Onboard(
-    image: "assets/image/tezos1.jpg",
-    title: "Snorkling",
-    text: "Selangor",
-  ),
-];

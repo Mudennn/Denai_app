@@ -1,4 +1,3 @@
-import 'package:denai_app/blank.dart';
 import 'package:denai_app/pages/detail_page.dart';
 import 'package:denai_app/pages/navpages/main_page.dart';
 import 'package:denai_app/pages/welcompages/welcome_page.dart';
