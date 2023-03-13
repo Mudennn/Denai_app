@@ -1,4 +1,5 @@
 import 'package:denai_app/pages/complete_profile/complete_profile_page.dart';
+import 'package:denai_app/pages/detail_place/detail_place_page.dart';
 import 'package:denai_app/pages/forgot_password/forgot_password_page.dart';
 import 'package:denai_app/pages/home_page/home_page.dart';
 // import 'package:denai_app/pages/home_page.dart';
@@ -13,13 +14,17 @@ import 'package:flutter/widgets.dart';
 // use name route
 // All routes will be available here
 final Map<String, WidgetBuilder> routes = {
-  WelcomePage.routeName:(context) => WelcomePage(),
-  SignInScreen.routeName:(context) => SignInScreen(),
-  ForgotPasswordPage.routeName:(context) => ForgotPasswordPage(),
-  LoginSuccessPage.routeName:(context) => LoginSuccessPage(),
-  SignUpPage.routeName: (context) => SignUpPage(),
-  CompleteProfilePage.routeName: (context) => CompleteProfilePage(),
-  OtpPage.routeName: (context) => OtpPage(),
-  HomePage.routeName: (context) => HomePage(),
-  MainPage.routeName: (context) => MainPage(),
+  WelcomePage.routeName:(context) => const WelcomePage(),
+  SignInScreen.routeName:(context) => const SignInScreen(),
+  ForgotPasswordPage.routeName:(context) => const ForgotPasswordPage(),
+  LoginSuccessPage.routeName:(context) => const LoginSuccessPage(),
+  SignUpPage.routeName: (context) => const SignUpPage(),
+  CompleteProfilePage.routeName: (context) => const CompleteProfilePage(),
+  OtpPage.routeName: (context) => const OtpPage(),
+  HomePage.routeName: (context) => const HomePage(),
+  MainPage.routeName: (context) => const MainPage(),
+
+  DetailPlacePage.routeName: (context) => const DetailPlacePage(),
+
+
 };
