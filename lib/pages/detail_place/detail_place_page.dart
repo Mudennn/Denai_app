@@ -11,7 +11,8 @@ class DetailPlacePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final PlaceDetailArgument arguments = ModalRoute.of(context).settings.arguments ;
+    final PlaceDetailArgument arguments =
+        ModalRoute.of(context)!.settings.arguments as PlaceDetailArgument;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(80),
@@ -23,7 +24,8 @@ class DetailPlacePage extends StatelessWidget {
 
 class DetailAppBar extends StatelessWidget {
   const DetailAppBar({
-    super.key, required this.difficulty,
+    super.key,
+    required this.difficulty,
   });
 
   final String difficulty;
@@ -48,13 +50,20 @@ class DetailAppBar extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
                 decoration: BoxDecoration(
-                    color: Colors.red[100],
+                    color: difficulty == "Hard"
+                        ? Colors.red[50]
+                        : difficulty == "Medium"
+                            ? Colors.yellow[50]
+                            : Colors.green[50],
                     borderRadius: BorderRadius.circular(14)),
-                child: Text(
-                  difficulty,
-                  style: TextStyle(color: Colors.red),
-                ),
-              )
+                child: Text(difficulty,
+                    style: TextStyle(
+                        color: difficulty == "Hard"
+                            ? Colors.red
+                            : difficulty == "Medium"
+                                ? Colors.yellow
+                                : Colors.green)),
+              ),
             ],
           ),
         ),
