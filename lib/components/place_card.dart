@@ -72,7 +72,7 @@ class PlaceCard extends StatelessWidget {
                             style: TextStyle(
                                 color: place.difficulty == "Hard"
                                     ? Colors.red
-                                    : place.difficulty == "Medium"
+                                    : place.difficulty == "Moderate"
                                         ? Colors.yellow
                                         : Colors.green)),
                       ),

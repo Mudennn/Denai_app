@@ -4,7 +4,9 @@ import '../size_config.dart';
 
 class BackBtn extends StatelessWidget {
   const BackBtn({
-    super.key, required this.iconData, required this.press,
+    super.key,
+    required this.iconData,
+    required this.press,
   });
   final IconData iconData;
   final GestureTapCallback press;
@@ -17,7 +19,7 @@ class BackBtn extends StatelessWidget {
       child: IconButton(
         padding: EdgeInsets.zero,
         onPressed: press,
-        icon: Icon(iconData),
+        icon: Icon(iconData, color: Colors.white,),
       ),
     );
   }
