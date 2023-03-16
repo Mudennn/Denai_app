@@ -1,5 +1,6 @@
 import 'package:denai_app/pages/complete_profile/complete_profile_page.dart';
 import 'package:denai_app/pages/detail_place/detail_place_page.dart';
+import 'package:denai_app/pages/detail_trip/detail_trip_page.dart';
 import 'package:denai_app/pages/forgot_password/forgot_password_page.dart';
 import 'package:denai_app/pages/home_page/home_page.dart';
 // import 'package:denai_app/pages/home_page.dart';
@@ -25,6 +26,7 @@ final Map<String, WidgetBuilder> routes = {
   MainPage.routeName: (context) => const MainPage(),
 
   DetailPlacePage.routeName: (context) => const DetailPlacePage(),
+  DetailTripPage.routeName: (context) => const DetailTripPage(),
 
 
 };

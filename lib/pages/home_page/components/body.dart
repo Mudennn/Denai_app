@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../../components/secction_title.dart';
+import '../../../components/section_title.dart';
 import '../../../constant.dart';
 import '../../../size_config.dart';
 import 'explore_more_container.dart';
 import 'hill_container.dart';
 import 'list_mountain_and_hill_container.dart';
+import 'list_trip_container.dart';
 import 'mountain_container.dart';
 import 'popular_container.dart';
 
@@ -154,8 +155,16 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               height: getProportionateScreenHeight(20),
             ),
             
+            const ListTripContainer(),
+            
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
             // -- List Mountain and hill CONTAINER -- //
             const ListMountainAndHillContainer(),
+            SizedBox(
+              height: getProportionateScreenHeight(20),
+            ),
           ],
           
         ),

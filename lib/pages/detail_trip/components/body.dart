@@ -1,14 +1,12 @@
 import 'package:denai_app/constant.dart';
-import 'package:denai_app/pages/home_page/components/list_mountain_and_hill_container.dart';
 import 'package:flutter/material.dart';
-
-import '../../../models/place.dart';
+import '../../../models/trip.dart';
 import '../../../size_config.dart';
-import 'place_image.dart';
+import 'trip_image.dart';
 
 class Body extends StatelessWidget {
-  final Place place;
-  const Body({super.key, required this.place});
+  final Trip trip;
+  const Body({super.key, required this.trip});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class Body extends StatelessWidget {
             Positioned(
               left: 0,
               right: 0,
-              child: PlaceImages(place: place),
+              child: TripImages(trip: trip),
             ),
             Positioned(
               top: 320,
@@ -51,7 +49,7 @@ class Body extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            place.location,
+                            trip.title,
                             style: TextStyle(
                               fontSize: 23,
                               fontWeight: FontWeight.bold,
@@ -89,7 +87,7 @@ class Body extends StatelessWidget {
                             size: 18,
                           ),
                           Text(
-                            place.state,
+                            trip.title,
                             style:
                                 const TextStyle(color: textColor, fontSize: 16),
                           ),
@@ -114,7 +112,7 @@ class Body extends StatelessWidget {
                                 const SizedBox(
                                   height: 4,
                                 ),
-                                Text.rich(TextSpan(text: "${place.length}km"))
+                                Text.rich(TextSpan(text: "${trip.title}km"))
                               ],
                             ),
                             const VerticalDivider(
@@ -136,7 +134,7 @@ class Body extends StatelessWidget {
                                 const SizedBox(
                                   height: 4,
                                 ),
-                                Text.rich(TextSpan(text: "${place.elavation}m"))
+                                Text.rich(TextSpan(text: "${trip.title}m"))
                               ],
                             ),
                             const VerticalDivider(
@@ -158,11 +156,11 @@ class Body extends StatelessWidget {
                                 const SizedBox(
                                   height: 4,
                                 ),
-                                Text(place.difficulty,
+                                Text(trip.title,
                                     style: TextStyle(
-                                        color: place.difficulty == "Hard"
+                                        color: trip.title == "Hard"
                                             ? Colors.red
-                                            : place.difficulty == "Moderate"
+                                            : trip.title == "Moderate"
                                                 ? Colors.yellow
                                                 : Colors.green))
                               ],
@@ -189,7 +187,7 @@ class Body extends StatelessWidget {
                             height: getProportionateScreenHeight(5),
                           ),
                           Text(
-                            place.description,
+                            trip.title,
                             style: const TextStyle(color: textColor),
                           ),
                         ],

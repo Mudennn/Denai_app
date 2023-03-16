@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constant.dart';
@@ -24,7 +25,6 @@ class _PlaceImagesState extends State<PlaceImages> {
       children: [
         SizedBox(
           width: double.infinity,
-          
           child: AspectRatio(
             aspectRatio: 1,
             child: Image.asset(
@@ -52,16 +52,20 @@ class _PlaceImagesState extends State<PlaceImages> {
         });
       },
       child: Container(
-        margin: EdgeInsets.only(right: getProportionateScreenWidth(15),),
+        margin: EdgeInsets.only(
+          right: getProportionateScreenWidth(15),
+        ),
         padding: EdgeInsets.all(
           getProportionateScreenHeight(8),
         ),
         height: getProportionateScreenHeight(48),
         width: getProportionateScreenWidth(48),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: selectedImage == index ? buttonColor : Colors.transparent),),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+              color: selectedImage == index ? buttonColor : Colors.transparent),
+        ),
         child: Image.asset(
           widget.place.images[index],
           fit: BoxFit.cover,

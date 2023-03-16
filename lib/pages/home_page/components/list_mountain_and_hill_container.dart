@@ -1,7 +1,7 @@
 import 'package:denai_app/components/place_card.dart';
 import 'package:flutter/material.dart';
 
-import '../../../components/secction_title.dart';
+import '../../../components/section_title.dart';
 import '../../../models/place.dart';
 import '../../../size_config.dart';
 import '../../detail_place/detail_place_page.dart';

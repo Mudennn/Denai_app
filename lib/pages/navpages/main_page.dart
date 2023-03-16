@@ -17,7 +17,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   // List pages untuk bottom nav bar
-  List pages = [
+  List pages = const [
     HomePage(),
     ActivityPage(),
     TripPage(),
