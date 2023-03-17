@@ -33,10 +33,10 @@ class TripCard extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: getProportionateScreenWidth(10),
-                    vertical: getProportionateScreenWidth(10)),
+                    vertical: getProportionateScreenWidth(0)),
                 child: Container(
                   width: 90,
-                  height: 90,
+                  height: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       color: textColor,
