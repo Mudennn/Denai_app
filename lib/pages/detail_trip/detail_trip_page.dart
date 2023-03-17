@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../models/place.dart';
-
+import '../../components/bottom_nav.dart';
 import '../../models/trip.dart';
 import 'components/body.dart';
 import 'components/detail_app_bar.dart';
@@ -22,6 +21,9 @@ class DetailTripPage extends StatelessWidget {
             child: DetailAppBar(difficulty: arguments.trip.title),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomNav(
+        price: arguments.trip.price,
       ),
     );
   }
