@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../pages/cart/cart_page.dart';
 import '../size_config.dart';
 import 'default_button.dart';
 
@@ -42,7 +43,7 @@ class BottomNav extends StatelessWidget {
             ),
             SizedBox(
                 width: getProportionateScreenWidth(250),
-                child: DefaultButton(text: "Book Now", press: () {}))
+                child: DefaultButton(text: "Book Now", press: () => Navigator.pushNamed(context, CartPage.routeName)))
           ]),
         ),
       ],

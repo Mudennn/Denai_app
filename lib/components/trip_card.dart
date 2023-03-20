@@ -114,6 +114,7 @@ class TripCard extends StatelessWidget {
                   ],
                 ),
               ),
+              
               // -- PRICE COLUMN --//
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
