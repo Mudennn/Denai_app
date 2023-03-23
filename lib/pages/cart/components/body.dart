@@ -3,66 +3,69 @@ import 'package:flutter/material.dart';
 
 import '../../../models/cart.dart';
 import '../../../size_config.dart';
+import 'cart_item_cart.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   const Body({super.key});
 
   @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(
-          width: getProportionateScreenWidth(88),
-          child: AspectRatio(
-            aspectRatio: 0.88,
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.grey[50],
-                borderRadius: BorderRadius.circular(15),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+      child: ListView.builder(
+        itemCount: demoCarts.length,
+        itemBuilder: ((context, index) => Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10),
+          child: Dismissible(
+                key: Key(demoCarts[index].trip.toString()),
+                direction: DismissDirection.endToStart,
+                background: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFFFFE6E6),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Row(
+                    children: const [
+                      Spacer(),
+                      Icon(Icons.delete_outline_outlined),
+                    ],
+                  ),
+                ),
+                onDismissed: (direction) {
+                  setState(() {
+                    demoCarts.removeAt(index);
+                  });
+                },
+                child: CartItemCard(cart: demoCarts[index]),
               ),
-              child: Image.asset(demoCarts[0].trip.images[0]),
-            ),
-          ),
-        ),
-        SizedBox(
-          width: getProportionateScreenWidth(20),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              demoCarts[0].trip.title,
-              style: const TextStyle(fontSize: 16, color: Colors.black),
-              maxLines: 2,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: [
-                Text.rich(
-                  TextSpan(
-                    text: "RM${demoCarts[0].trip.price}",
-                    style: const TextStyle(color: buttonColor),
-                  ),
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Text.rich(
-                  TextSpan(
-                    text: "x${demoCarts[0].numberOfItems}",
-                    style: const TextStyle(color: textColor),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
+        )),
+      ),
     );
   }
 }
+
+
+// Dismissible(
+//             key: Key(demoCarts[0].trip.toString()),
+//             background: Container(
+//               padding: EdgeInsets.symmetric(horizontal: 20),
+//               decoration: BoxDecoration(
+//                 color: Color(0xFFFFE6E6),
+//                 borderRadius: BorderRadius.circular(15),
+//               ),
+//               child: Row(
+//                 children: [
+//                   Spacer(),
+//                   Icon(Icons.delete_outline_outlined)
+//                 ],
+//               ),
+//             ),
+//             child: CartItemCard(
+//               cart: demoCarts[0],
+//             ),),

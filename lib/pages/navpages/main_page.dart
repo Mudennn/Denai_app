@@ -1,7 +1,7 @@
 import 'package:denai_app/pages/home_page/home_page.dart';
 import 'package:denai_app/pages/navpages/activity_page.dart';
 // import 'package:denai_app/pages/home_page.dart';
-import 'package:denai_app/pages/navpages/profile_page.dart';
+import 'package:denai_app/pages/profile_page/profile_page.dart';
 import 'package:denai_app/pages/navpages/trip_page.dart';
 import 'package:flutter/material.dart';
 
