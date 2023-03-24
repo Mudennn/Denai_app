@@ -8,6 +8,7 @@ import 'package:denai_app/pages/home_page/home_page.dart';
 import 'package:denai_app/pages/login_success/login_success_page.dart';
 import 'package:denai_app/pages/navpages/main_page.dart';
 import 'package:denai_app/pages/otp/otp_page.dart';
+import 'package:denai_app/pages/profile_page/profile_page.dart';
 import 'package:denai_app/pages/sign_in/sign_in_screen.dart';
 import 'package:denai_app/pages/sign_up/sign_up_page.dart';
 import 'package:denai_app/pages/welcompages/welcome_page.dart';
@@ -30,6 +31,8 @@ final Map<String, WidgetBuilder> routes = {
   DetailTripPage.routeName: (context) => const DetailTripPage(),
 
   CartPage.routeName: (context) => const CartPage(),
+
+  ProfilePage.routeName: (context) => const ProfilePage(),
 
 
 };
