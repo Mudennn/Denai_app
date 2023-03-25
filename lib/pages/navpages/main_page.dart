@@ -1,5 +1,6 @@
+import 'package:denai_app/constant.dart';
 import 'package:denai_app/pages/home_page/home_page.dart';
-import 'package:denai_app/pages/navpages/activity_page.dart';
+import 'package:denai_app/pages/activity/activity_page.dart';
 // import 'package:denai_app/pages/home_page.dart';
 import 'package:denai_app/pages/profile_page/profile_page.dart';
 import 'package:denai_app/pages/navpages/trip_page.dart';
@@ -39,7 +40,7 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
           onTap: onTap, // bind bagi boleh tukar2 page
           currentIndex: currentIndex, // untuk boleh tukar2 page atau tengok current page
-          selectedItemColor: Colors.green[300],
+          selectedItemColor: buttonColor,
           unselectedItemColor: Colors.green[100],
           showSelectedLabels: false,
           showUnselectedLabels: false,

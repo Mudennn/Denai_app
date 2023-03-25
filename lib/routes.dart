@@ -1,3 +1,4 @@
+import 'package:denai_app/pages/activity/activity_page.dart';
 import 'package:denai_app/pages/cart/cart_page.dart';
 import 'package:denai_app/pages/complete_profile/complete_profile_page.dart';
 import 'package:denai_app/pages/detail_place/detail_place_page.dart';
@@ -33,6 +34,7 @@ final Map<String, WidgetBuilder> routes = {
   CartPage.routeName: (context) => const CartPage(),
 
   ProfilePage.routeName: (context) => const ProfilePage(),
+  ActivityPage.routeName: (context) => const ActivityPage(),
 
 
 };
