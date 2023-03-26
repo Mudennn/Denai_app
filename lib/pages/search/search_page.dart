@@ -1,0 +1,101 @@
+import 'package:flutter/material.dart';
+
+import '../../models/trip.dart';
+import '../activity/components/body.dart';
+import '../detail_trip/detail_trip_page.dart';
+// import 'components/body.dart';
+
+class SearchPage extends StatelessWidget {
+  static String routeName = "/search";
+  const SearchPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // appBar: AppBar(
+      //   centerTitle: false,
+      //   automaticallyImplyLeading: false,
+      //   title: const Text("Denai", style: TextStyle(color: Colors.black),),
+      // ),
+      // body: const Body(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text("Denai", style: TextStyle(color: Colors.black)),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: CustomSearchDelegate(),
+              );
+            },
+            icon:const Icon(Icons.search_outlined),
+          ),
+        ],
+      ),
+      body: Body(),
+    );
+  }
+}
+
+class CustomSearchDelegate extends SearchDelegate {
+  List<Trip> demoList = demoTrip;
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [
+      IconButton(
+          onPressed: () {
+            query = '';
+          },
+          icon: const Icon(Icons.clear))
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: const Icon(Icons.arrow_back));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    List<Trip> matchQuery= [];
+    for (var trip in demoTrip) {
+      if (trip.title.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(trip);
+      }
+    }
+    return ListView.builder(itemCount: matchQuery.length, itemBuilder: (context, index) {
+      var result = matchQuery[index];
+      return ListTile(
+        title: Text(result.title),
+      );
+    },  );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    List<Trip> matchQuery= [];
+    for (var trip in demoTrip) {
+      if (trip.title.toLowerCase().contains(query.toLowerCase())) {
+        matchQuery.add(trip);
+      }
+    }
+    return ListView.builder(itemCount: matchQuery.length, itemBuilder: (context, index) {
+      var result = matchQuery[index];
+      return GestureDetector(
+        onTap: () => Navigator.pushNamed(
+                          context,
+                          DetailTripPage.routeName,
+                          arguments: TripDetailArgument(trip: demoTrip[index]),
+                        ),
+        child: ListTile(
+          title: Text(result.title),
+        ),
+      );
+    },  );
+  }
+}
