@@ -15,7 +15,7 @@ class BackBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: getProportionateScreenWidth(40),
-      width: getProportionateScreenWidth(40),
+      width: getProportionateScreenWidth(20),
       child: IconButton(
         padding: EdgeInsets.zero,
         onPressed: press,
