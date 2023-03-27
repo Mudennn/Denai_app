@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../components/back_button.dart';
 import '../../../constant.dart';
 import '../../../size_config.dart';
-import '../../activity/activity_page.dart';
+
 
 class ChatGroupBar extends StatelessWidget {
   const ChatGroupBar({
@@ -19,7 +19,7 @@ class ChatGroupBar extends StatelessWidget {
         children: [
           BackBtn(
             iconData: Icons.arrow_back_ios_new_outlined,
-            press: () => Navigator.pushNamed(context, ActivityPage.routeName),
+            press: () =>  Navigator.pop(context),
           ),
           SizedBox(
             width: getProportionateScreenWidth(20),

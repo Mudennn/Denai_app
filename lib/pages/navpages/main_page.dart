@@ -1,10 +1,10 @@
 import 'package:denai_app/constant.dart';
 import 'package:denai_app/pages/home_page/home_page.dart';
-import 'package:denai_app/pages/activity/activity_page.dart';
+// import 'package:denai_app/pages/activity/activity_page.dart';
 import 'package:denai_app/pages/search/search_page.dart';
 // import 'package:denai_app/pages/home_page.dart';
 import 'package:denai_app/pages/profile_page/profile_page.dart';
-import 'package:denai_app/pages/navpages/trip_page.dart';
+import 'package:denai_app/pages/trip_joined/trip_page.dart';
 import 'package:flutter/material.dart';
 
 // Main page adalah sebuah page yang berkait dengan bottom navigation
@@ -22,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   List pages = const [
     HomePage(),
     SearchPage(),
-    ActivityPage(),
+    // ActivityPage(),
     TripPage(),
     ProfilePage(),
   ];
@@ -60,10 +60,10 @@ class _MainPageState extends State<MainPage> {
               label: "Search",
               icon: Icon(Icons.search_outlined),
             ),
-            BottomNavigationBarItem(
-              label: "Activity",
-              icon: Icon(Icons.directions_walk),
-            ),
+            // BottomNavigationBarItem(
+            //   label: "Activity",
+            //   icon: Icon(Icons.directions_walk),
+            // ),
             BottomNavigationBarItem(
               label: "Trip",
               icon: Icon(Icons.chat),

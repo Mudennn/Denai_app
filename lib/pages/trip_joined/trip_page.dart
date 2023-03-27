@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../chat_page/chat_page.dart';
+import 'components/body.dart';
 
 class TripPage extends StatelessWidget {
   const TripPage({super.key});
@@ -8,7 +7,11 @@ class TripPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ChatPage(),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text("Denai", style: TextStyle(color: Colors.black),),
+      ),
+      body: Body(),
     );
   }
 }
