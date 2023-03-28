@@ -5,6 +5,7 @@ import '../../../models/trip.dart';
 import '../../../size_config.dart';
 import '../../detail_trip/detail_trip_page.dart';
 import 'activity_card.dart';
+import '../../../utils/date_utils.dart' as date_util;
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -15,6 +16,8 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   List<Trip> demoList = demoTrip;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +30,9 @@ class _BodyState extends State<Body> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+  
             const Text(
-              "Trip This Week",
+              "Today Trips",
               style: TextStyle(
                   fontSize: 20,
                   color: headingColor,
