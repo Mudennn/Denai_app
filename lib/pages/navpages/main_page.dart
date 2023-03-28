@@ -1,6 +1,6 @@
 import 'package:denai_app/constant.dart';
 import 'package:denai_app/pages/home_page/home_page.dart';
-// import 'package:denai_app/pages/activity/activity_page.dart';
+import 'package:denai_app/pages/activity/activity_page.dart';
 import 'package:denai_app/pages/search/search_page.dart';
 // import 'package:denai_app/pages/home_page.dart';
 import 'package:denai_app/pages/profile_page/profile_page.dart';
@@ -21,8 +21,8 @@ class _MainPageState extends State<MainPage> {
   // List pages untuk bottom nav bar
   List pages = const [
     HomePage(),
-    SearchPage(),
-    // ActivityPage(),
+    // SearchPage(),
+    ActivityPage(),
     TripPage(),
     ProfilePage(),
   ];
@@ -56,14 +56,14 @@ class _MainPageState extends State<MainPage> {
               label: "Home",
               icon: Icon(Icons.home),
             ),
-            BottomNavigationBarItem(
-              label: "Search",
-              icon: Icon(Icons.search_outlined),
-            ),
             // BottomNavigationBarItem(
-            //   label: "Activity",
-            //   icon: Icon(Icons.directions_walk),
+            //   label: "Search",
+            //   icon: Icon(Icons.search_outlined),
             // ),
+            BottomNavigationBarItem(
+              label: "Activity",
+              icon: Icon(Icons.directions_walk),
+            ),
             BottomNavigationBarItem(
               label: "Trip",
               icon: Icon(Icons.chat),
