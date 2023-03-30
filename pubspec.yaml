@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    
+   
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,11 +43,13 @@ dependencies:
   http:
   provider: ^4.3.1
   carousel_slider: ^4.2.1
+  intl: ^0.17.0 
+  date_picker_timeline:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  intl: ^0.17.0
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

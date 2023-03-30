@@ -1,4 +1,5 @@
 import 'package:denai_app/pages/activity/activity_page.dart';
+import 'package:denai_app/pages/activity_form/add_activity_form.dart';
 import 'package:denai_app/pages/cart/cart_page.dart';
 import 'package:denai_app/pages/chat_page/chat_page.dart';
 import 'package:denai_app/pages/complete_profile/complete_profile_page.dart';
@@ -40,6 +41,8 @@ final Map<String, WidgetBuilder> routes = {
   SearchPage.routeName: (context) => const SearchPage(),
 
   ChatPage.routeName: (context) => const ChatPage(),
+
+  AddActivityForm.routeName: (context) => const AddActivityForm(),
 
 
 };
