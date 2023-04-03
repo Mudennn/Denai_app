@@ -1,6 +1,6 @@
 import 'package:denai_app/cubit/app_cubit_state.dart';
 import 'package:denai_app/cubit/app_cubits.dart';
-import 'package:denai_app/pages/welcome_page_trash.dart';
+import 'package:denai_app/pages/trash/welcome_page_trash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

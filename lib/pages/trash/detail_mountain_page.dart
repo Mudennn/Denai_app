@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/app_button.dart';
-import '../widgets/responsive_button.dart';
+// import '../widgets/app_button.dart';
+// import '../widgets/responsive_button.dart';
 
-class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+// page untuk tengok detail mountain atau hill beserta list trip
+class DetailMountainPage extends StatefulWidget {
+  const DetailMountainPage({super.key});
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<DetailMountainPage> createState() => _DetailMountainPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
-  int gottenStar = 4;
-  int selectedIndex = -1;
-
+class _DetailMountainPageState extends State<DetailMountainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,31 +127,8 @@ class _DetailPageState extends State<DetailPage> {
                       const SizedBox(
                         height: 20,
                       ),
-                      // Rating
-                      Row(
-                        children: [
-                          Wrap(
-                            children: List.generate(
-                              5,
-                              (index) {
-                                return Icon(
-                                  Icons.star,
-                                  color: index < gottenStar
-                                      ? Colors.yellow
-                                      : Colors.grey,
-                                );
-                              },
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            "(4.0)",
-                            style: TextStyle(color: Colors.grey),
-                          )
-                        ],
-                      ),
+                     
+                     
                       const SizedBox(
                         height: 25,
                       ),
@@ -178,32 +153,7 @@ class _DetailPageState extends State<DetailPage> {
                         height: 10,
                       ),
                       // Number selection
-                      Wrap(
-                        children: List.generate(5, (index) {
-                          return InkWell(
-                            onTap: () {
-                              setState(() {
-                                selectedIndex = index;
-                              });
-                            },
-                            child: Container(
-                              margin: const EdgeInsets.only(right: 10),
-                              child: AppButtons(
-                                  size: 50,
-                                  color: selectedIndex == index
-                                      ? Colors.green[50]!
-                                      : Colors.green[800]!,
-                                  backgroundColor: selectedIndex == index
-                                      ? Colors.green[400]!
-                                      : Colors.green[100]!,
-                                  borderColor: selectedIndex == index
-                                      ? Colors.green[400]!
-                                      : Colors.green[100]!,
-                                  text: (index + 1).toString()),
-                            ),
-                          );
-                        }),
-                      ),
+                  
                       const SizedBox(
                         height: 20,
                       ),
@@ -233,20 +183,20 @@ class _DetailPageState extends State<DetailPage> {
               left: 20,
               right: 20,
               child: Row(children: [
-                AppButtons(
-                  size: 60,
-                  color: Colors.green[200]!,
-                  backgroundColor: Colors.white,
-                  borderColor: Colors.green[200]!,
-                  isIcon: true,
-                  icon: Icons.favorite_border,
-                ),
+                // AppButtons(
+                //   size: 60,
+                //   color: Colors.green[200]!,
+                //   backgroundColor: Colors.white,
+                //   borderColor: Colors.green[200]!,
+                //   isIcon: true,
+                //   icon: Icons.favorite_border,
+                // ),
                const SizedBox(
                   width: 20,
                 ),
-                ResponsiveButton(
-                  isResponsive: true,
-                ),
+                // ResponsiveButton(
+                //   isResponsive: true,
+                // ),
               ]),
             )
           ],
