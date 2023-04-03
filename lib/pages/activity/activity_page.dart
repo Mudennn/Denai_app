@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 // import '../../size_config.dart';
 import '../search/components/search_bar.dart';
 import 'components/body.dart';
-import 'components/calander.dart';
+import '../trash/calander.dart';
 import 'components/calender2.dart';
 
 class ActivityPage extends StatelessWidget {

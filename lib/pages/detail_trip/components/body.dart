@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../components/back_button.dart';
 import '../../../models/trip.dart';
 import '../../../size_config.dart';
-import '../../../widgets/app_button.dart';
-import '../../../widgets/responsive_button.dart';
+import '../../trash/widgets/app_button.dart';
+import '../../trash/widgets/responsive_button.dart';
 import 'trip_image.dart';
 
 class Body extends StatelessWidget {

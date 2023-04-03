@@ -5,7 +5,7 @@ import '../../../models/trip.dart';
 import '../../../size_config.dart';
 import '../../detail_trip/detail_trip_page.dart';
 import 'activity_card.dart';
-import '../../../utils/date_utils.dart' as date_util;
+import '../../trash/utils/date_utils.dart' as date_util;
 
 class Body extends StatefulWidget {
   const Body({super.key});

@@ -1,5 +1,3 @@
-import 'package:denai_app/pages/detail_page.dart';
-import 'package:denai_app/pages/navpages/main_page.dart';
 import 'package:denai_app/pages/welcompages/welcome_page.dart';
 import 'package:denai_app/routes.dart';
 import 'package:denai_app/theme.dart';
