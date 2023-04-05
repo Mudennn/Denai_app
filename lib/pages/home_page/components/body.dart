@@ -31,29 +31,17 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: const EdgeInsets.only(top: 20, left: 20, bottom: 20),
-              child: Text(
-                "Denai Hiking",
-                style: TextStyle(
-                    fontSize: getProportionateScreenWidth(21),
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: getProportionateScreenWidth(20),
+                vertical: getProportionateScreenHeight(20),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    width: SizeConfig.screenWidth * 0.6,
+              child: Container(
+                width: double.maxFinite,
                     height: 50,
                     decoration: BoxDecoration(
                         color: textColor.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(15)),
+                        borderRadius: BorderRadius.circular(16)),
                     child: TextField(
                       onChanged: (value) {
                         // search value
@@ -69,76 +57,117 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
                         ),
                       ),
                     ),
-                  ),
-                  Container(
-                    height: getProportionateScreenHeight(46),
-                    width: getProportionateScreenWidth(46),
-                    decoration: BoxDecoration(
-                      color: textColor.withOpacity(0.1),
-                    ),
-                    child: Icon(
-                      Icons.list_outlined,
-                      color: headingColor,
-                    ),
-                  ),
-                ],
               ),
+              // child: Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Container(
+              //       width: SizeConfig.screenWidth * 0.6,
+              //       height: 50,
+              //       decoration: BoxDecoration(
+              //           color: textColor.withOpacity(0.1),
+              //           borderRadius: BorderRadius.circular(15)),
+              //       child: TextField(
+              //         onChanged: (value) {
+              //           // search value
+              //         },
+              //         decoration: InputDecoration(
+              //           enabledBorder: InputBorder.none,
+              //           focusedBorder: InputBorder.none,
+              //           hintText: "Search Place",
+              //           prefixIcon: const Icon(Icons.search),
+              //           contentPadding: EdgeInsets.symmetric(
+              //             horizontal: getProportionateScreenWidth(20),
+              //             vertical: getProportionateScreenHeight(12),
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //     Container(
+              //       height: getProportionateScreenHeight(46),
+              //       width: getProportionateScreenWidth(46),
+              //       decoration: BoxDecoration(
+              //         color: textColor.withOpacity(0.1),
+              //       ),
+              //       child: const Icon(
+              //         Icons.list_outlined,
+              //         color: headingColor,
+              //       ),
+              //     ),
+              //   ],
+              // ),
             ),
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
-
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                 Padding(
+                   padding:  EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20),),
+                   child:  Text("Popular Place",style: TextStyle(fontSize: getProportionateScreenWidth(18), fontWeight: FontWeight.bold),),
+                 ),
+                 const SizedBox(height: 16,),
+                Container(
+                  height: 300,
+                  padding: const EdgeInsets.only(left: 0),
+                  width: double.maxFinite,
+                  child: const PopularContainer(),
+                )
+              ],
+            ),
             //--- TAB BAR --- ///
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TabBar(
-                controller: _tabController,
-                labelColor: buttonColor,
-                unselectedLabelColor: textColor,
-                isScrollable: true,
-                labelPadding: EdgeInsets.only(
-                  left: getProportionateScreenWidth(20),
-                  right: getProportionateScreenWidth(20),
-                ),
-                indicatorSize: TabBarIndicatorSize.label,
-                indicator: CircleTabIndicator(color: buttonColor, radius: 4),
-                tabs: const [
-                  Tab(
-                    text: "Popular",
-                  ),
-                  Tab(
-                    text: "Mountain",
-                  ),
-                  Tab(
-                    text: "Hill",
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
+            // Align(
+            //   alignment: Alignment.centerLeft,
+            //   child: TabBar(
+            //     controller: _tabController,
+            //     labelColor: buttonColor,
+            //     unselectedLabelColor: textColor,
+            //     isScrollable: true,
+            //     labelPadding: EdgeInsets.only(
+            //       left: getProportionateScreenWidth(20),
+            //       right: getProportionateScreenWidth(20),
+            //     ),
+            //     indicatorSize: TabBarIndicatorSize.label,
+            //     indicator: CircleTabIndicator(color: buttonColor, radius: 4),
+            //     tabs: const [
+            //       Tab(
+            //         text: "Popular",
+            //       ),
+            //       Tab(
+            //         text: "Mountain",
+            //       ),
+            //       Tab(
+            //         text: "Hill",
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: getProportionateScreenHeight(20),
+            // ),
 
             //--- Popular container ----//
-            Container(
-              padding: EdgeInsets.only(
-                left: getProportionateScreenWidth(0),
-              ),
-              height: 300,
-              width: double.maxFinite,
-              child: TabBarView(
-                controller: _tabController,
-                children: const [
-                  PopularContainer(),
-                  // Mountain container
-                  MountainContainer(),
-                  // Hill Section
-                  HillContainer(),
-                ],
-              ),
-            ),
+            // Container(
+            //   padding: EdgeInsets.only(
+            //     left: getProportionateScreenWidth(0),
+            //   ),
+            //   height: 300,
+            //   width: double.maxFinite,
+            //   child: TabBarView(
+            //     controller: _tabController,
+            //     children: const [
+            //       PopularContainer(),
+            //       // Mountain container
+            //       MountainContainer(),
+            //       // Hill Section
+            //       HillContainer(),
+            //     ],
+            //   ),
+            // ),
             SizedBox(
-              height: getProportionateScreenHeight(30),
+              height: getProportionateScreenHeight(32),
             ),
 
             // Explore More Container

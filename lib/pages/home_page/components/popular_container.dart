@@ -22,7 +22,7 @@ class PopularContainer extends StatelessWidget {
                 height: getProportionateScreenHeight(350),
                 width: getProportionateScreenWidth(200),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(16),
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
@@ -39,7 +39,7 @@ class PopularContainer extends StatelessWidget {
                               const Color(0xFF343434)
                                   .withOpacity(0.15),
                               const Color(0xFF343434)
-                                  .withOpacity(0.4),
+                                  .withOpacity(0.6),
                             ],
                           ),
                         ),
@@ -77,7 +77,7 @@ class PopularContainer extends StatelessWidget {
                                   Icon(
                                     Icons.location_on_outlined,
                                     color: Colors.white
-                                        .withOpacity(0.5),
+                                        .withOpacity(0.7),
                                         size: 13,
 
                                   ),
@@ -85,7 +85,7 @@ class PopularContainer extends StatelessWidget {
                                     popularData[index].text,
                                     style: TextStyle(
                                       color: Colors.white
-                                          .withOpacity(0.5),
+                                          .withOpacity(0.7),
                                     ),
                                   ),
                                 ],

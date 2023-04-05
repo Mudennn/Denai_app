@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../constant.dart';
 import 'components/body.dart';
 import '../../components/custom_appbar.dart';
 
@@ -12,9 +13,15 @@ class HomePage extends StatelessWidget {
     return const Scaffold(
       extendBodyBehindAppBar: true,
       appBar: CustomAppBar(
-        title: 'MyDenai',
+        title: '',
         // titleWidget: Icon(Icons.menu_outlined),
-        showActionIcon: true,
+        // showActionIcon: true,
+        leading: Text(
+          "MyDenai",
+          style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 22, color: headingColor),
+        ),
+        rightLeading: Icon(Icons.notifications, color: headingColor,),
       ),
       body: Body(),
     );
