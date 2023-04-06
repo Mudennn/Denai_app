@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../components/section_title.dart';
 import '../../../constant.dart';
 import '../../../size_config.dart';
-import 'explore_more_container.dart';
-import 'hill_container.dart';
-import 'list_mountain_and_hill_container.dart';
-import 'list_trip_container.dart';
-import 'mountain_container.dart';
+import 'categories_icon_list.dart';
+import 'mountain_and_hill_container.dart';
 import 'popular_container.dart';
 
 class Body extends StatefulWidget {
@@ -26,7 +22,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    TabController _tabController = TabController(length: 3, vsync: this);
+    // TabController _tabController = TabController(length: 3, vsync: this);
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -38,25 +34,25 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               ),
               child: Container(
                 width: double.maxFinite,
-                    height: 50,
-                    decoration: BoxDecoration(
-                        color: textColor.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(16)),
-                    child: TextField(
-                      onChanged: (value) {
-                        // search value
-                      },
-                      decoration: InputDecoration(
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        hintText: "Search Place",
-                        prefixIcon: const Icon(Icons.search),
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: getProportionateScreenWidth(20),
-                          vertical: getProportionateScreenHeight(12),
-                        ),
-                      ),
+                height: 50,
+                decoration: BoxDecoration(
+                    color: textColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(16)),
+                child: TextField(
+                  onChanged: (value) {
+                    // search value
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: InputBorder.none,
+                    focusedBorder: InputBorder.none,
+                    hintText: "Search Place",
+                    prefixIcon: const Icon(Icons.search),
+                    contentPadding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(20),
+                      vertical: getProportionateScreenHeight(12),
                     ),
+                  ),
+                ),
               ),
               // child: Row(
               //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -98,17 +94,30 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
               // ),
             ),
             SizedBox(
+              height: getProportionateScreenHeight(8),
+            ),
+            const CategoriesIconList(),
+            SizedBox(
               height: getProportionateScreenHeight(20),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Padding(
-                   padding:  EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20),),
-                   child:  Text("Popular Place",style: TextStyle(fontSize: getProportionateScreenWidth(18), fontWeight: FontWeight.bold),),
-                 ),
-                 const SizedBox(height: 16,),
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(20),
+                  ),
+                  child: Text(
+                    "Popular Place",
+                    style: TextStyle(
+                        fontSize: getProportionateScreenWidth(18),
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
                 Container(
                   height: 300,
                   padding: const EdgeInsets.only(left: 0),
@@ -171,31 +180,35 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             ),
 
             // Explore More Container
-            SectionTitle(
-              text: 'Explore more',
-              press: () {},
-            ),
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
-            // Container Icon untuk setiap categories
-            const ExploreMoreContainer(),
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
+            // SectionTitle(
+            //   text: 'Explore more',
+            //   press: () {},
+            // ),
+            // SizedBox(
+            //   height: getProportionateScreenHeight(20),
+            // ),
+            // // Container Icon untuk setiap categories
+            // const ExploreMoreContainer(),
+            // SizedBox(
+            //   height: getProportionateScreenHeight(20),
+            // ),
+
+            // const ListTripContainer(),
+
+            // SizedBox(
+            //   height: getProportionateScreenHeight(20),
+            // ),
+
             
-            const ListTripContainer(),
-            
-            SizedBox(
-              height: getProportionateScreenHeight(20),
-            ),
+            // const ListMountainAndHillContainer(),
+           
             // -- List Mountain and hill CONTAINER -- //
-            const ListMountainAndHillContainer(),
+            const MountainAndHillContainer(),
+
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
           ],
-          
         ),
       ),
     );
@@ -248,4 +261,3 @@ class _CirclePainter extends BoxPainter {
     canvas.drawCircle(offset + circleOffset, radius, _paint);
   }
 }
-
