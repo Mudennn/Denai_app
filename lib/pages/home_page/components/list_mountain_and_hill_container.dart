@@ -15,7 +15,7 @@ class ListMountainAndHillContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SectionTitle(text: "List mountain and hill", press: () {}),
+        SectionTitle(text: "Mountain and hill", press: () {}),
         SizedBox(
           height: getProportionateScreenHeight(20),
         ),

@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 22, color: headingColor),
         ),
-        rightLeading: Icon(Icons.notifications, color: headingColor,),
+        rightLeading: Icon(Icons.notifications_none_outlined, color: headingColor,),
       ),
       body: Body(),
     );

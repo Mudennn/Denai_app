@@ -56,12 +56,12 @@ class ExploreMoreContainer extends StatelessWidget {
 }
 
 class Onboard {
-  final String image, title, text;
+  final String image, title;
 
   Onboard({
     required this.image,
     required this.title,
-    required this.text,
+    // required this.text,
   });
 }
 
@@ -69,21 +69,18 @@ final List<Onboard> exploreData = [
   Onboard(
     image: "assets/image/Mountain1.jpg",
     title: "Hiking",
-    text: "Sabah",
   ),
   Onboard(
     image: "assets/image/Mountain2.jpg",
     title: "Kayaking",
-    text: "Negeri Sembilan",
   ),
   Onboard(
     image: "assets/image/Mountain3.jpg",
     title: "Camping",
-    text: "Selangor",
   ),
   Onboard(
     image: "assets/image/tezos1.jpg",
     title: "Snorkling",
-    text: "Selangor",
+
   ),
 ];
