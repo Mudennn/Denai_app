@@ -1,12 +1,8 @@
-// import 'package:denai_app/constant.dart';
-
 import 'package:flutter/material.dart';
-
-// import '../../size_config.dart';
+import '../../components/custom_appbar.dart';
+import '../../constant.dart';
 import '../search/components/search_bar.dart';
 import 'components/body.dart';
-import '../trash/calander.dart';
-import 'components/calender2.dart';
 
 class ActivityPage extends StatelessWidget {
   static String routeName = "/activity";
@@ -14,24 +10,15 @@ class ActivityPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar:  PreferredSize(
-                  preferredSize: Size.fromHeight(80), 
-                  child: SearchBar()),
-      body: CalenderPage2(),
-      // body: SingleChildScrollView(
-      //   child: 
-      //     Column(
-      //       children: const [
-      //         PreferredSize(
-      //             preferredSize: Size.fromHeight(80), 
-      //             child: SearchBar()),
-      //         // Body()
-      //         CalenderPage()
-      //       ],
-      //     ),
-        
-      // ),
+    return const  Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(
+        title: '',
+        leading: Text("MyDenai", style: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 22, color: headingColor),),
+        rightLeading: SearchBar(),
+      ),
+      body: Body(),
     );
   }
 }

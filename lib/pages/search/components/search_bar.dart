@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../models/trip.dart';
 import '../../detail_trip/detail_trip_page.dart';
 
@@ -10,21 +9,37 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      title: const Text("Denai", style: TextStyle(color: Colors.black)),
-      actions: [
-        IconButton(
-          onPressed: () {
-            showSearch(
-              context: context,
-              delegate: CustomSearchDelegate(),
-            );
-          },
-          icon: const Icon(Icons.search_outlined),
-        ),
-      ],
+    return GestureDetector(
+      onTap: () {
+        showSearch(
+          context: context,
+          delegate: CustomSearchDelegate(),
+        );
+      },
+      child: Container(
+       
+        decoration: BoxDecoration(
+            // color: whiteColor.withOpacity(0.2),
+            borderRadius: BorderRadius.circular(50)),
+        child: const Icon(Icons.search_outlined),
+      ),
     );
+    // );
+    // return AppBar(
+    //   automaticallyImplyLeading: false,
+    //   title: const Text("Denai", style: TextStyle(color: Colors.black)),
+    //   actions: [
+    //     IconButton(
+    //       onPressed: () {
+    //         showSearch(
+    //           context: context,
+    //           delegate: CustomSearchDelegate(),
+    //         );
+    //       },
+    //       icon: const Icon(Icons.search_outlined),
+    //     ),
+    //   ],
+    // );
   }
 }
 
