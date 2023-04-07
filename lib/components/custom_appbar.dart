@@ -63,7 +63,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: textColor.withOpacity(0.1),
+                        color: whiteColor.withOpacity(0.2),
                         borderRadius: BorderRadius.circular(50)
                       ),
                       child: rightLeading,

@@ -90,7 +90,7 @@ class Body extends StatelessWidget {
                                 size: 22,
                               ),
                               const SizedBox(
-                                width: 5,
+                                width: 4,
                               ),
                               Text(
                                 trip.organizer,

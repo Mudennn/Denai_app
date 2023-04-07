@@ -32,7 +32,7 @@ class MountainCard extends StatelessWidget {
                   aspectRatio: 1.02,
                   child: Container(
                     decoration: BoxDecoration(
-                        color: textColor,
+                        color: Colors.grey,
                         borderRadius: BorderRadius.circular(8),
                         image: DecorationImage(
                             image: AssetImage(place.images[0]),
