@@ -7,49 +7,46 @@ import '../../../size_config.dart';
 import 'add_activity_button.dart';
 import '../../activity_form/add_activity_form.dart';
 
-class CalenderPage2 extends StatefulWidget {
-  const CalenderPage2({super.key});
+class CalenderPage extends StatefulWidget {
+  const CalenderPage({super.key});
 
   @override
-  State<CalenderPage2> createState() => _CalenderPage2State();
+  State<CalenderPage> createState() => _CalenderPageState();
 }
 
-class _CalenderPage2State extends State<CalenderPage2> {
+class _CalenderPageState extends State<CalenderPage> {
   DateTime selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    DateFormat.yMMMd().format(DateTime.now()),
-                    style: const TextStyle(
-                      fontSize: 18,
-                    ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  DateFormat.yMMMd().format(DateTime.now()),
+                  style: const TextStyle(
+                    fontSize: 18,
                   ),
-                  const Text(
-                    "Today",
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: headingColor),
-                  ),
-                ],
-              ),
-              AddActivityButton(
-                press: () => Navigator.pushNamed(context, AddActivityForm.routeName),
-                title: 'Add Activity',
-              ),
-            ],
-          ),
+                ),
+                const Text(
+                  "Today",
+                  style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: headingColor),
+                ),
+              ],
+            ),
+            AddActivityButton(
+              press: () => Navigator.pushNamed(context, AddActivityForm.routeName),
+              title: 'Add Activity',
+            ),
+          ],
         ),
         Container(
           margin: const EdgeInsets.only(top: 20, left: 20),

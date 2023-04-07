@@ -77,7 +77,7 @@ class ActivityCard extends StatelessWidget {
           //--PRICE--//
           Text.rich(
             TextSpan(
-              text: "RM${trip.price}",
+              text: "RM${trip.price.toInt()}",
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: buttonColor,
