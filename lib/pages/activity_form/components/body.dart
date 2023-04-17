@@ -30,7 +30,9 @@ class _BodyState extends State<Body> {
     // final start = dateRange.start;
     // final end = dateRange.end;
 
-    return Padding(
+    return 
+    SafeArea(child: 
+    Padding(
       padding: EdgeInsets.symmetric(
         horizontal: getProportionateScreenWidth(20),
       ),
@@ -38,13 +40,13 @@ class _BodyState extends State<Body> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Add Activity",
-              style: TextStyle(
-                  fontSize: 22,
-                  color: headingColor,
-                  fontWeight: FontWeight.bold),
-            ),
+            // const Text(
+            //   "Add Activity",
+            //   style: TextStyle(
+            //       fontSize: 22,
+            //       color: headingColor,
+            //       fontWeight: FontWeight.bold),
+            // ),
             // -- TITLE -- //
             InputField(
               title: "Title",
@@ -131,7 +133,10 @@ class _BodyState extends State<Body> {
           ],
         ),
       ),
+    )
+    
     );
+    
   }
 
   validateData() {
