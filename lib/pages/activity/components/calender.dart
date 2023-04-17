@@ -2,8 +2,6 @@ import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:denai_app/constant.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../../../size_config.dart';
 import 'add_activity_button.dart';
 import '../../activity_form/add_activity_form.dart';
 
@@ -49,7 +47,7 @@ class _CalenderPageState extends State<CalenderPage> {
           ],
         ),
         Container(
-          margin: const EdgeInsets.only(top: 20, left: 20),
+          margin: const EdgeInsets.only(top: 20),
           child: DatePicker(
             DateTime.now(),
             height: 100,

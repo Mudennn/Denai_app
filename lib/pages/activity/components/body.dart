@@ -51,9 +51,9 @@ class _BodyState extends State<Body> {
                 itemCount: demoTrip.length,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: .65,
-                    crossAxisSpacing: 20,
-                    mainAxisSpacing: 10),
+                    childAspectRatio: .66,
+                    crossAxisSpacing: 0,
+                    mainAxisSpacing: 0),
                 itemBuilder: (context, index) => ActivityCard(
                   press: () => Navigator.pushNamed(
                     context,

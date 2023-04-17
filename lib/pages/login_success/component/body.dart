@@ -32,7 +32,7 @@ class Body extends StatelessWidget {
         SizedBox(
           width: SizeConfig.screenWidth * 0.6,
           child: DefaultButton(
-            text: 'Back to home',
+            text: 'Proceed',
             press: () {
               Navigator.pushNamed(context, MainPage.routeName);
             },

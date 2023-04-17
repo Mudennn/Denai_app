@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../constant.dart';
 import '../../../models/trip.dart';
 import '../../detail_trip/detail_trip_page.dart';
 
@@ -17,11 +18,11 @@ class SearchBar extends StatelessWidget {
         );
       },
       child: Container(
-       
-        decoration: BoxDecoration(
-            // color: whiteColor.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(50)),
-        child: const Icon(Icons.search_outlined),
+      //  padding: EdgeInsets.all(8),
+        // decoration: BoxDecoration(
+        //     color: Colors.grey.withOpacity(0.2),
+        //     borderRadius: BorderRadius.circular(50)),
+        child: const Icon(Icons.search_outlined, color: headingColor,),
       ),
     );
     // );
