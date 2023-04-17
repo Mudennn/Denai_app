@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../components/custom_appbar.dart';
 import 'components/body.dart';
 
 class AddActivityForm extends StatelessWidget {
@@ -8,11 +8,18 @@ class AddActivityForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Denai", style: TextStyle(color: Colors.black),),
+    return const Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(
+        title: 'Add Activity',
+        // titleWidget: Icon(Icons.menu_outlined),
+        // showActionIcon: true,
+        // leading: BackBtn(
+        //         iconData: Icons.arrow_back_ios_new,
+        //         press: () => Navigator.pop(context),
+        //       ),
       ),
-      body:const Body(),
+      body: Body(),
     );
   }
 }

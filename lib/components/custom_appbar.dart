@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar(
-      {super.key, this.title = '', this.leading, this.titleWidget, this.onActionTap, this.rightLeading});
+      {super.key,
+      this.title = '',
+      this.leading,
+      this.titleWidget,
+      this.onActionTap,
+      this.rightLeading});
 
   final String title;
   final Widget? leading;
@@ -27,7 +32,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
-                            color: Colors.black),
+                            color: headingColor),
                       ),
                     )
                   : Center(
@@ -39,14 +44,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 leading ??
-                    Transform.translate(
-                      offset: const Offset(-14, 0),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: textColor.withOpacity(0.05),
+                        borderRadius: BorderRadius.circular(50),
+                      ),
                       child: GestureDetector(
-                        onTap: () {},
-                        child: const Icon(Icons.arrow_back_ios_new_outlined),
+                        onTap: () => Navigator.pop(context),
+                        child: const Icon(
+                          Icons.arrow_back_ios_new_outlined,
+                          color: headingColor,
+                        ),
                       ),
                     ),
-                    // ICON BELAH KANAN //
+
+                // ICON BELAH KANAN //
                 // if (showActionIcon)
                 //   Transform.translate(
                 //     offset: const Offset(10, 0),
@@ -58,17 +71,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 //       ),
                 //     ),
                 //   )
-                  GestureDetector(
-                    onTap: onActionTap,
-                    child: Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
+                GestureDetector(
+                  onTap: onActionTap,
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
                         color: whiteColor.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(50)
-                      ),
-                      child: rightLeading,
-                    ),
-                  )
+                        borderRadius: BorderRadius.circular(50)),
+                    child: rightLeading,
+                  ),
+                )
               ],
             )
           ],
