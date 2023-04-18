@@ -54,6 +54,7 @@ class MountainCard extends StatelessWidget {
                   place.state,
                   style: const TextStyle(
                     color: textColor,
+                    fontSize: 11
                   ),
                 ),
                 Text(place.difficulty,

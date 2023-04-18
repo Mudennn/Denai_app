@@ -16,7 +16,7 @@ class PopularContainer extends StatelessWidget {
           onTap: () {},
           child: Padding(
               padding: EdgeInsets.only(
-                left: getProportionateScreenWidth(20),
+                right: getProportionateScreenWidth(8),
               ),
               child: SizedBox(
                 height: getProportionateScreenHeight(350),

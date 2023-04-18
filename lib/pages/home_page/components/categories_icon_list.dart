@@ -22,7 +22,7 @@ class CategoriesIconList extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.green[50],
+                  color: textColor.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: SvgPicture.asset(
@@ -31,7 +31,7 @@ class CategoriesIconList extends StatelessWidget {
                   width: 40,
                   fit: BoxFit.scaleDown,
                   colorFilter:
-                      const ColorFilter.mode(buttonColor, BlendMode.srcIn),
+                      const ColorFilter.mode(textColor, BlendMode.srcIn),
                 ),
               ),
             ),
@@ -44,11 +44,11 @@ class CategoriesIconList extends StatelessWidget {
         Column(
           children: [
             GestureDetector(
-              onTap: (){},
+              onTap: () {},
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.cyan[50],
+                  color: textColor.withOpacity(0.1), //Colors.cyan[50]
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: SvgPicture.asset(
@@ -56,8 +56,7 @@ class CategoriesIconList extends StatelessWidget {
                   height: 40,
                   width: 40,
                   fit: BoxFit.scaleDown,
-                  colorFilter: const ColorFilter.mode(
-                      Color.fromARGB(255, 0, 96, 100), BlendMode.srcIn),
+                  colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn), //Color.fromARGB(255, 0, 96, 100)
                 ),
               ),
             ),
@@ -72,7 +71,7 @@ class CategoriesIconList extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.orange[50],
+                color: textColor.withOpacity(0.1), //Colors.orange[50]
                 borderRadius: BorderRadius.circular(50),
               ),
               child: SvgPicture.asset(
@@ -80,8 +79,7 @@ class CategoriesIconList extends StatelessWidget {
                 height: 40,
                 width: 40,
                 fit: BoxFit.scaleDown,
-                colorFilter: const ColorFilter.mode(
-                    Color.fromARGB(255, 230, 81, 0), BlendMode.srcIn),
+                colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn), //Color.fromARGB(255, 230, 81, 0)
               ),
             ),
             const Text(
@@ -95,7 +93,7 @@ class CategoriesIconList extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.blue[50],
+                color: textColor.withOpacity(0.1), //Colors.blue[50]
                 borderRadius: BorderRadius.circular(50),
               ),
               child: SvgPicture.asset(
@@ -103,8 +101,7 @@ class CategoriesIconList extends StatelessWidget {
                 height: 40,
                 width: 40,
                 fit: BoxFit.scaleDown,
-                colorFilter: const ColorFilter.mode(
-                    Color.fromARGB(255, 13, 71, 161), BlendMode.srcIn),
+                colorFilter: const ColorFilter.mode(textColor, BlendMode.srcIn), //Color.fromARGB(255, 13, 71, 161)
               ),
             ),
             const Text(

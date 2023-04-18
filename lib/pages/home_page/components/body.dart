@@ -4,6 +4,7 @@ import '../../../size_config.dart';
 import 'categories_icon_list.dart';
 import 'mountain_and_hill_container.dart';
 import 'popular_container.dart';
+import 'popular_place_container.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -100,32 +101,7 @@ class _BodyState extends State<Body> with TickerProviderStateMixin {
             SizedBox(
               height: getProportionateScreenHeight(20),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(20),
-                  ),
-                  child: Text(
-                    "Popular Place",
-                    style: TextStyle(
-                        fontSize: getProportionateScreenWidth(18),
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                Container(
-                  height: 300,
-                  padding: const EdgeInsets.only(left: 0),
-                  width: double.maxFinite,
-                  child: const PopularContainer(),
-                )
-              ],
-            ),
+            const PopularPlaceContainer(),
             //--- TAB BAR --- ///
             // Align(
             //   alignment: Alignment.centerLeft,
