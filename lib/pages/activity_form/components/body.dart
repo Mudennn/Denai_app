@@ -23,7 +23,7 @@ class _BodyState extends State<Body> {
   final TextEditingController descriptionController = TextEditingController();
 
   DateTimeRange dateRange =
-      DateTimeRange(start: DateTime(2019, 11, 5), end: DateTime(2130, 11, 5));
+      DateTimeRange(start: DateTime(2022, 11, 5), end: DateTime(2130, 11, 5));
 
   @override
   Widget build(BuildContext context) {
@@ -125,9 +125,9 @@ class _BodyState extends State<Body> {
               controller: descriptionController,
               height: 100,
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            // const SizedBox(
+            //   height: 20,
+            // ),
             AddActivityButton(
                 title: 'Create Activity', press: () => validateData())
           ],
