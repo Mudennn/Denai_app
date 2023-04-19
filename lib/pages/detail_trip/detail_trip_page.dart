@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../components/add_to_cart_bar.dart';
 import '../../components/back_button.dart';
 // import '../../components/bottom_nav.dart';
 import '../../components/custom_appbar.dart';
@@ -16,34 +17,38 @@ class DetailTripPage extends StatelessWidget {
     final TripDetailArgument arguments =
         ModalRoute.of(context)!.settings.arguments as TripDetailArgument;
     return Scaffold(
-    //   body: Stack(
-    //     children: [
-    //       Body(trip: arguments.trip),
-    //       PreferredSize(
-    //         preferredSize: const Size.fromHeight(80),
-    //         child: DetailAppBar(difficulty: arguments.trip.title),
-    //       ),
-    //     ],
-    //   ),
-    //   bottomNavigationBar: BottomNav(
-    //     price: arguments.trip.price,
-    //   ),
-    // );
-    extendBodyBehindAppBar: true,
+      //   body: Stack(
+      //     children: [
+      //       Body(trip: arguments.trip),
+      //       PreferredSize(
+      //         preferredSize: const Size.fromHeight(80),
+      //         child: DetailAppBar(difficulty: arguments.trip.title),
+      //       ),
+      //     ],
+      //   ),
+      //   bottomNavigationBar: BottomNav(
+      //     price: arguments.trip.price,
+      //   ),
+      // );
+      extendBodyBehindAppBar: true,
       appBar: CustomAppBar(
         title: '',
-        // titleWidget: Icon(Icons.menu_outlined),
-        // showActionIcon: true,
         leading: BackBtn(
-                iconData: Icons.arrow_back_ios_new,
-                press: () => Navigator.pop(context),
-              ),
-        rightLeading:const Icon(Icons.share_outlined, color: whiteColor,),
+          iconData: Icons.arrow_back_ios_new,
+          press: () => Navigator.pop(context),
+        ),
+        rightLeading: const Icon(
+          Icons.share_outlined,
+          color: whiteColor,
+        ),
       ),
       body: Body(trip: arguments.trip),
+      bottomNavigationBar: AddToCartBar(arguments: arguments),
     );
   }
 }
+
+
 
 class TripDetailArgument {
   final Trip trip;

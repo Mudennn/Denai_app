@@ -50,7 +50,7 @@ class CartItemCard extends StatelessWidget {
               children: [
                 Text.rich(
                   TextSpan(
-                    text: "RM${cart.trip.price}",
+                    text: "RM${cart.trip.price.toInt()}",
                     style: const TextStyle(color: buttonColor),
                   ),
                 ),

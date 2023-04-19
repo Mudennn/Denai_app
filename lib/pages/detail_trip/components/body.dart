@@ -1,11 +1,7 @@
 import 'package:denai_app/constant.dart';
 import 'package:flutter/material.dart';
-import '../../../components/back_button.dart';
 import '../../../models/trip.dart';
 import '../../../size_config.dart';
-import '../../trash/widgets/app_button.dart';
-import '../../trash/widgets/responsive_button.dart';
-import 'trip_image.dart';
 
 class Body extends StatelessWidget {
   final Trip trip;
@@ -175,7 +171,7 @@ class Body extends StatelessWidget {
                             const SizedBox(
                               height: 4,
                             ),
-                            Text.rich(TextSpan(text: "${trip.people}"))
+                            Text.rich(TextSpan(text: "${trip.people.toInt()}"))
                           ],
                         ),
                       ],
